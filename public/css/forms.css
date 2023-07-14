@@ -1,0 +1,11 @@
+.forms__control--input {
+    width: 100%;
+    border: 1px solid silver;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.forms__control--input:focus{
+    box-shadow: 0px 0px 5px cadetblue;
+    outline: none;
+}
