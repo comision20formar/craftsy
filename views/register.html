@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
+</head>
+<body class="register">
+    <header class="home__header">
+        <div class="home__header--top">
+            <a href="/"><img src="/img/logo.png" alt=""></a>
+            <button class="home__header--bars">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+        <nav class="home__header--menu">
+            <ul>
+                <li><a href="">smartphones</a></li>
+                <li><a href="">tablets</a></li>
+                <li><a href="">computadoras</a></li>
+            </ul>
+            <ul>
+                <li><a href="/login">login</a></li>
+                <li><a href="/register">registro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h3>Registrate</h3>
+                    <hr>
+                    <form class="row" action="">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label class="form-label" for="name">Nombre</label>
+                            <input class="form-control" type="text" id="name" name="name">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label class="form-label" for="surname">Apellido</label>
+                            <input class="form-control" type="text" id="surname" name="surname">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" type="email" id="email" name="email">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <input class="form-control" type="password" id="password" name="password">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label class="form-label" for="password2">Confirma contraseña</label>
+                            <input class="form-control" type="password" id="password2" name="password2">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-dark">Registrate</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
