@@ -26,6 +26,14 @@
   text-transform: uppercase;
 }
 
+.home__header--menu {
+  display: none;
+}
+
+.showMenu {
+  display: block;
+}
+
 @media (min-width: 481px) {
 
   /* HEADER */
