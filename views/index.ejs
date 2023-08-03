@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Craftsy</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
-</head>
+<%- include('partials/head',{
+    title : 'HOME'
+}) %>
 
 <body class="home">
-    <header class="home__header">
-        <div class="home__header--top">
-            <a href="/"><img src="/img/logo.png" alt=""></a>
-            <button class="home__header--bars" onclick="document.querySelector('.home__header--menu').classList.toggle('showMenu')">
-                <i class="fas fa-bars fa-lg"></i>
-            </button>
-        </div>
-        <nav class="home__header--menu">
-            <ul>
-                <li><a href="">smartphones</a></li>
-                <li><a href="">tablets</a></li>
-                <li><a href="">computadoras</a></li>
-            </ul>
-            <ul>
-                <li><a href="/login">login</a></li>
-                <li><a href="/register">registro</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include('partials/header') %>
+
     <div class="home__banner">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
@@ -45,19 +22,19 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active home__banner--box-image" style="
-              background-image: url('/img/banner/banner_1.jpg');
+              background-image: url('/images/banner/banner_1.jpg');
               ">
                 </div>
                 <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/img/banner/banner_2.jpg');
+              background-image: url('/images/banner/banner_2.jpg');
               ">
                 </div>
                 <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/img/banner/banner_3.jpg');
+              background-image: url('/images/banner/banner_3.jpg');
               ">
                 </div>
                 <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/img/banner/banner_4.jpg');
+              background-image: url('/images/banner/banner_4.jpg');
               ">
                 </div>
 
@@ -78,7 +55,7 @@
 
         <main class="home__main">
             <article class="home__main__article">
-                <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -87,7 +64,7 @@
 
             </article>
             <article class="home__main__article">
-                <img src="/img/img-phone-02.jpg" alt="Imagen phone 2">
+                <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -96,7 +73,7 @@
 
             </article>
             <article class="home__main__article">
-                <img src="/img/img-phone-03.jpg" alt="Imagen phone 3">
+                <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -105,7 +82,7 @@
 
             </article>
             <article class="home__main__article">
-                <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -114,7 +91,7 @@
 
             </article>
             <article class="home__main__article">
-                <img src="/img/img-phone-02.jpg" alt="Imagen phone 2">
+                <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -123,7 +100,7 @@
 
             </article>
             <article class="home__main__article">
-                <img src="/img/img-phone-03.jpg" alt="Imagen phone 3">
+                <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
                 <div class="home__main__article--description">
                     <h4>Nombre del producto</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
@@ -135,27 +112,27 @@
             <section class="home__aside__section">
                 <h3>Tutoriales</h3>
                 <article class="home__aside__section__article">
-                    <img src="/img/aside-01.jpg" alt="Imagen tutorial 1">
+                    <img src="/images/aside-01.jpg" alt="Imagen tutorial 1">
                     <h5>Título del tutorial de reparación</h5>
                 </article>
                 <article class="home__aside__section__article">
-                    <img src="/img/aside-02.jpg" alt="Imagen tutorial 2">
+                    <img src="/images/aside-02.jpg" alt="Imagen tutorial 2">
                     <h5>Título del tutorial de reparación</h5>
                 </article>
                 <article class="home__aside__section__article">
-                    <img src="/img/aside-03.jpg" alt="Imagen tutorial 3">
+                    <img src="/images/aside-03.jpg" alt="Imagen tutorial 3">
                     <h5>Título del tutorial de reparación</h5>
                 </article>
                 <article class="home__aside__section__article">
-                    <img src="/img/aside-04.jpg" alt="Imagen tutorial 4">
+                    <img src="/images/aside-04.jpg" alt="Imagen tutorial 4">
                     <h5>Título del tutorial de reparación</h5>
                 </article>
             </section>
             <section class="home__aside__section">
                 <h3>Publicidad</h3>
                 <div class="home__aside__section--ads">
-                    <img src="/img/ad-01.jpg" alt="imagen publicidad 1">
-                    <img src="/img/ad-02.jpg" alt="imagen publicidad 2">
+                    <img src="/images/ad-01.jpg" alt="imagen publicidad 1">
+                    <img src="/images/ad-02.jpg" alt="imagen publicidad 2">
                 </div>
             </section>
         </aside>
@@ -165,7 +142,7 @@
             <div class="glider">
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -174,7 +151,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-02.jpg" alt="Imagen phone 2">
+                        <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -183,7 +160,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-03.jpg" alt="Imagen phone 3">
+                        <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -192,7 +169,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -201,7 +178,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -210,7 +187,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-02.jpg" alt="Imagen phone 2">
+                        <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -219,7 +196,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-03.jpg" alt="Imagen phone 3">
+                        <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -228,7 +205,7 @@
                 </div>
                 <div>
                     <article class="home__carousel__article">
-                        <img src="/img/img-phone-01.jpg" alt="Imagen phone 1">
+                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
                         <div class="home__carousel__article--description">
                             <h4>Nombre del producto</h4>
                         </div>
@@ -245,7 +222,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-    <script src="/js/glider.js"></script>
+    <script src="/javascripts/glider.js"></script>
     <script>
         window.addEventListener("load", function () {
             new Glider(document.querySelector(".glider"), {

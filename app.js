@@ -1,31 +1,41 @@
-const express = require("express");
-const path = require("path");
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const app = express();
-const PORT = 3030;
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 
-app.use(express.static('public'));
+var app = express();
 
-/* rutas */
-app.get("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "views", "home.html"))
-);
-app.get("/header", (req, res) =>
-  res.sendFile(path.join(__dirname, "views","partials", "header.html"))
-);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.get("/register", (req, res) =>
-  res.sendFile(path.join(__dirname, "views", "register.html"))
-);
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/login", (req, res) =>
-  res.sendFile(path.join(__dirname, "views", "login.html"))
-);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
-app.get("/profile", (req, res) =>
-  res.sendFile(path.join(__dirname, "views", "profile.html"))
-);
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-app.listen(PORT, () =>
-  console.log("Server running in http://localhost:" + PORT)
-);
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+module.exports = app;
