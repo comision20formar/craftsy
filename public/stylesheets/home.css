@@ -24,6 +24,7 @@
   background-color: #ffffff;
   height: 220px;
 }
+
 .home__carousel__article img {
   width: 100%;
 }
@@ -32,6 +33,9 @@
   text-align: center;
 }
 
+.home__main__article {
+  position: relative;
+}
 
 .home__main__article img {
   width: 100%;
@@ -39,6 +43,16 @@
 
 .home__main__article--description {
   margin: 20px 0;
+}
+
+.home__main__article--discount  {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 5px;
+  right: -5px;
 }
 
 .home__main__article--description p {
@@ -81,6 +95,15 @@
   width: 100%;
   border: 1px solid gray;
   margin-bottom: 10px;
+}
+
+.home__aside__section__article--name span {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.home__aside__section__article--name:hover span {
+  opacity: 1;
 }
 
 .home__aside__section--ads {

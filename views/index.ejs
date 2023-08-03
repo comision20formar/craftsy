@@ -54,79 +54,37 @@
     <div class="home__box">
 
         <main class="home__main">
-            <article class="home__main__article">
-                <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-
-            </article>
-            <article class="home__main__article">
-                <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-
-            </article>
-            <article class="home__main__article">
-                <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-
-            </article>
-            <article class="home__main__article">
-                <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-
-            </article>
-            <article class="home__main__article">
-                <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-
-            </article>
-            <article class="home__main__article">
-                <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
-                <div class="home__main__article--description">
-                    <h4>Nombre del producto</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, quas.</p>
-                    <a href="">ver más</a>
-                </div>
-            </article>
+            <% products.forEach(product => { %>
+                <% if (product.discount > 0) { %>
+                    <article class="home__main__article">
+                        <img src="/images/<%= product.image %>" alt="Imagen phone 1">
+                        <div class="home__main__article--description">
+                            <h4><%= product.name %></h4>
+                            <p><%= product.description %></p>
+                            <a href="/products/detail/<%= product.id %>">ver más</a>
+                        </div>
+                        <h3 class="home__main__article--discount"><%= product.discount %>%</h3>
+                    </article>
+                <% } %>
+               
+            <% }) %>
         </main>
+
         <aside class="home__aside">
             <section class="home__aside__section">
                 <h3>Tutoriales</h3>
-                <article class="home__aside__section__article">
-                    <img src="/images/aside-01.jpg" alt="Imagen tutorial 1">
-                    <h5>Título del tutorial de reparación</h5>
-                </article>
-                <article class="home__aside__section__article">
-                    <img src="/images/aside-02.jpg" alt="Imagen tutorial 2">
-                    <h5>Título del tutorial de reparación</h5>
-                </article>
-                <article class="home__aside__section__article">
-                    <img src="/images/aside-03.jpg" alt="Imagen tutorial 3">
-                    <h5>Título del tutorial de reparación</h5>
-                </article>
-                <article class="home__aside__section__article">
-                    <img src="/images/aside-04.jpg" alt="Imagen tutorial 4">
-                    <h5>Título del tutorial de reparación</h5>
-                </article>
+                <% tutorials.forEach(tutorial => { %>
+                    <article class="home__aside__section__article">
+                        <img src="/images/<%= tutorial.image %>" alt="Imagen tutorial 1">
+                        <div class="home__aside__section__article--name">
+                            <h5><%= tutorial.name %></h5>
+                            <span><%= tutorial.message %></span>
+                        </div>
+                    </article>
+
+                <% }) %>
+               
+              
             </section>
             <section class="home__aside__section">
                 <h3>Publicidad</h3>
@@ -140,78 +98,17 @@
     <div class="home__carousel">
         <div class="glider-contain" >
             <div class="glider">
-                <div>
+                <% products.forEach(product => { %>
                     <article class="home__carousel__article">
-                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
+                        <img src="/images/<%= product.image %>" alt="Imagen phone 1">
                         <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
+                            <h4><%= product.name %></h4>
                         </div>
-
                     </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
+                <% }) %>
 
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-02.jpg" alt="Imagen phone 2">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-03.jpg" alt="Imagen phone 3">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
-                <div>
-                    <article class="home__carousel__article">
-                        <img src="/images/img-phone-01.jpg" alt="Imagen phone 1">
-                        <div class="home__carousel__article--description">
-                            <h4>Nombre del producto</h4>
-                        </div>
-
-                    </article>
-                </div>
+                   
+              
             </div>
 
             <button aria-label="Previous" class="glider-prev">«</button>
