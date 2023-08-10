@@ -66,10 +66,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <% products.forEach(({id, name, brand, price, discount, image, description})=> { %>
+                                                    <% products.forEach(({id, name, brand, price, discount, image, description},index)=> { %>
                                                         <tr>
                                                             <th scope="row">
-                                                                <%= id %>
+                                                                <%= index + 1 %>
                                                             </th>
                                                             <td>
                                                                 <%= name %>
@@ -127,7 +127,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <a href="/products/edit"
+                                                                    <a href="/products/edit/<%= id %>"
                                                                         class="btn btn-sm btn-success">
                                                                         <i class="fas fa-edit"></i>
                                                                     </a>

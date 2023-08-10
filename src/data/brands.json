@@ -1,0 +1,57 @@
+[
+    {
+        "id" : 1,
+        "name" : "Apple",
+        "origin" : "Estados Unidos",
+        "image" : null
+    },
+    {
+        "id" : 2,
+        "name" : "Motorola",
+        "origin" : "Estados Unidos",
+        "image" : null
+    },
+    {
+        "id" : 3,
+        "name" : "Huawei",
+        "origin" : "China",
+        "image" : null
+    },
+    {
+        "id" : 4,
+        "name" : "Nokia",
+        "origin" : "Suiza",
+        "image" : null
+    },
+    {
+        "id" : 5,
+        "name" : "Samsung",
+        "origin" : "Corea del Sur",
+        "image" : null
+    },
+    {
+        "id" : 6,
+        "name" : "Xiaomi",
+        "origin" : "China",
+        "image" : null
+    },
+    {
+        "id" : 7,
+        "name" : "Blackberry",
+        "origin" : "Alemania",
+        "image" : null
+    },
+    {
+        "id" : 8,
+        "name" : "Phillips",
+        "origin" : "Filipinas",
+        "image" : null
+    },
+    {
+        "id" : 9,
+        "name" : "Asus",
+        "origin" : "Taiwan",
+        "image" : null
+    }
+]
+

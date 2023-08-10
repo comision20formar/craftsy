@@ -1,0 +1,83 @@
+[
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55106c",
+      "name": "Iphone 11",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 200,
+      "discount": 10,
+      "image": "img-phone-01.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55105c",
+      "name": "Samsumg S20",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 150,
+      "discount": 0,
+      "image": "img-phone-02.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55104c",
+      "name": "Motorola X",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 100,
+      "discount": 20,
+      "image": "img-phone-03.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55103c",
+      "name": "Nokia 1100",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 50,
+      "discount": 0,
+      "image": "img-phone-01.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55102c",
+      "name": "Xiaomi 11",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 150,
+      "discount": 10,
+      "image": "img-phone-02.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55101c",
+      "name": "Asus Gamer",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 250,
+      "discount": 50,
+      "image": "img-phone-03.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55100c",
+      "name": "Phillips",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 150,
+      "discount": 30,
+      "image": "img-phone-01.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55117c",
+      "name": "Blackberry",
+      "brand": null,
+      "description": "Lorem ipsum dolor amet sit",
+      "price": 350,
+      "discount": 60,
+      "image": "img-phone-02.jpg"
+   },
+   {
+      "id": "2d1b55b6-79df-4f85-806f-fadc9a55107c",
+      "name": "Nokia 1100",
+      "brand": "Nokia",
+      "price": 100,
+      "discount": 10,
+      "description": "Nunca muere!!!",
+      "createdAt": "2023-08-08T23:27:49.611Z"
+   }
+]
