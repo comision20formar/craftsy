@@ -78,15 +78,5 @@
       "discount": 60,
       "image": "img-phone-02.jpg",
       "createdAt": "2023-08-10T23:32:58.298Z"
-   },
-   {
-      "id": "2d1b55b6-79df-4f85-806f-fadc9a55107c",
-      "name": "Nokia 1100",
-      "brand": "Nokia",
-      "price": 100,
-      "discount": 10,
-      "description": "Nunca muere!!!",
-      "image": null,
-      "createdAt": "2023-08-08T23:27:49.611Z"
    }
 ]

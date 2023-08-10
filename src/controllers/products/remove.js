@@ -1,3 +1,12 @@
+const { readJSON, writeJSON } = require("../../data")
+
 module.exports = (req,res) => {
-    return req.send('Remover el producto')
+    const products = readJSON('products.json');
+    const id = req.params.id;
+
+    const productsModify = products.filter(product => product.id !== id);
+
+    writeJSON(productsModify, 'products.json')
+
+    return res.redirect('/admin')
 }
