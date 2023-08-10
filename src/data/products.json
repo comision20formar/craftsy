@@ -2,74 +2,82 @@
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55106c",
       "name": "Iphone 11",
-      "brand": null,
+      "brand": "Apple",
       "description": "Lorem ipsum dolor amet sit",
       "price": 200,
       "discount": 10,
-      "image": "img-phone-01.jpg"
+      "image": "img-phone-01.jpg",
+      "createdAt": "2023-08-10T23:31:37.396Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55105c",
       "name": "Samsumg S20",
-      "brand": null,
+      "brand": "Samsung",
       "description": "Lorem ipsum dolor amet sit",
       "price": 150,
       "discount": 0,
-      "image": "img-phone-02.jpg"
+      "image": "img-phone-02.jpg",
+      "createdAt": "2023-08-10T23:32:30.303Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55104c",
       "name": "Motorola X",
-      "brand": null,
+      "brand": "Motorola",
       "description": "Lorem ipsum dolor amet sit",
       "price": 100,
       "discount": 20,
-      "image": "img-phone-03.jpg"
+      "image": "img-phone-03.jpg",
+      "createdAt": "2023-08-10T23:32:35.070Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55103c",
       "name": "Nokia 1100",
-      "brand": null,
+      "brand": "Nokia",
       "description": "Lorem ipsum dolor amet sit",
       "price": 50,
       "discount": 0,
-      "image": "img-phone-01.jpg"
+      "image": "img-phone-01.jpg",
+      "createdAt": "2023-08-10T23:33:28.607Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55102c",
       "name": "Xiaomi 11",
-      "brand": null,
+      "brand": "Xiaomi",
       "description": "Lorem ipsum dolor amet sit",
       "price": 150,
       "discount": 10,
-      "image": "img-phone-02.jpg"
+      "image": "img-phone-02.jpg",
+      "createdAt": "2023-08-10T23:32:50.730Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55101c",
       "name": "Asus Gamer",
-      "brand": null,
+      "brand": "Asus",
       "description": "Lorem ipsum dolor amet sit",
       "price": 250,
       "discount": 50,
-      "image": "img-phone-03.jpg"
+      "image": "img-phone-03.jpg",
+      "createdAt": "2023-08-10T23:33:03.536Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55100c",
       "name": "Phillips",
-      "brand": null,
+      "brand": "Phillips",
       "description": "Lorem ipsum dolor amet sit",
       "price": 150,
       "discount": 30,
-      "image": "img-phone-01.jpg"
+      "image": "img-phone-01.jpg",
+      "createdAt": "2023-08-10T23:33:34.043Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55117c",
       "name": "Blackberry",
-      "brand": null,
+      "brand": "Blackberry",
       "description": "Lorem ipsum dolor amet sit",
       "price": 350,
       "discount": 60,
-      "image": "img-phone-02.jpg"
+      "image": "img-phone-02.jpg",
+      "createdAt": "2023-08-10T23:32:58.298Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55107c",
@@ -78,6 +86,7 @@
       "price": 100,
       "discount": 10,
       "description": "Nunca muere!!!",
+      "image": null,
       "createdAt": "2023-08-08T23:27:49.611Z"
    }
 ]

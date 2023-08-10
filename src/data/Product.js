@@ -8,6 +8,7 @@ const Product = function({name,brand,price,discount,description}){
     this.price = +price;
     this.discount = +discount;
     this.description = description.trim()
+    this.image = null
     this.createdAt = new Date();
 }
 
