@@ -97,87 +97,58 @@
                                                                         <i class="fas fa-eye"></i>
                                                                     </button>
 
-                                                                    <div class="modal fade" id="modalDetail<%= id %>"
-                                                                        tabindex="-1"
-                                                                        aria-labelledby="modalDetailLabel"
-                                                                        aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h2 class="modal-title fs-1"
-                                                                                        id="modalDetailLabel">
-                                                                                        <%= name %>
-                                                                                    </h2>
-                                                                                    <button type="button"
-                                                                                        class="btn-close"
-                                                                                        data-bs-dismiss="modal"
-                                                                                        aria-label="Close"></button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <div class="row">
-                                                                                        <div class="col-12 col-md-4">
-                                                                                            <img src="/images/<%= image %>"
-                                                                                                class="img-fluid"
-                                                                                                alt="">
-                                                                                        </div>
-                                                                                        <div class="col-12 col-md-8">
-                                                                                            <h2>U$S<%= price %>
-                                                                                            </h2>
-                                                                                            <p>
-                                                                                                <%= description %>
-                                                                                            </p>
-                                                                                            <button type="button"
-                                                                                                name="" id=""
-                                                                                                class="btn btn-dark disabled">Comprar</button>
-                                                                                        </div>
+                                                                    <%- include('partials/modalProductDetail',{ id,
+                                                                        name, price, discount, description, image })%>
+
+                                                                        <a href="/products/edit/<%= id %>"
+                                                                            class="btn btn-sm btn-success">
+                                                                            <i class="fas fa-edit"></i>
+                                                                        </a>
+
+                                                                        <button type="button"
+                                                                            class="btn btn-sm btn-danger"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#modalDelete<%=id%>">
+                                                                            <i class="fas fa-trash"></i>
+                                                                        </button>
+
+                                                                        <div class="modal fade" id="modalDelete<%=id%>"
+                                                                            tabindex="-1"
+                                                                            aria-labelledby="modalDeleteLabel"
+                                                                            aria-hidden="true">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title"
+                                                                                            id="modalDeleteLabel">
+                                                                                            Advertencia
+                                                                                        </h5>
+                                                                                        <button type="button"
+                                                                                            class="btn-close"
+                                                                                            data-bs-dismiss="modal"
+                                                                                            aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <p>¿Estás seguro que querés
+                                                                                            eliminar el producto <b>
+                                                                                                <%= name %>
+                                                                                            </b>?</p>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button"
+                                                                                            class="btn btn-secondary"
+                                                                                            data-bs-dismiss="modal">Cancelar</button>
+                                                                                        <form
+                                                                                            action="/products/remove/<%=id%>?_method=DELETE"
+                                                                                            method="POST">
+                                                                                            <button type="submit"
+                                                                                                class="btn btn-danger">Eliminalo</button>
+                                                                                        </form>
+
                                                                                     </div>
                                                                                 </div>
-
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <a href="/products/edit/<%= id %>"
-                                                                        class="btn btn-sm btn-success">
-                                                                        <i class="fas fa-edit"></i>
-                                                                    </a>
-                                                                
-                                                                    <button type="button" class="btn btn-sm btn-danger"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#modalDelete<%=id%>">
-                                                                        <i class="fas fa-trash"></i>
-                                                                    </button>
-
-                                                                    <div class="modal fade" id="modalDelete<%=id%>"
-                                                                        tabindex="-1"
-                                                                        aria-labelledby="modalDeleteLabel"
-                                                                        aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title"
-                                                                                        id="modalDeleteLabel">Advertencia
-                                                                                    </h5>
-                                                                                    <button type="button"
-                                                                                        class="btn-close"
-                                                                                        data-bs-dismiss="modal"
-                                                                                        aria-label="Close"></button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <p>¿Estás seguro que querés eliminar el producto <b><%= name %></b>?</p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button"
-                                                                                        class="btn btn-secondary"
-                                                                                        data-bs-dismiss="modal">Cancelar</button>
-                                                                                    <form action="/products/remove/<%=id%>?_method=DELETE" method="POST">
-                                                                                        <button type="submit"
-                                                                                        class="btn btn-danger">Eliminalo</button>
-                                                                                        </form>
-                                                                                      
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
 
                                                                 </div>
                                                             </td>

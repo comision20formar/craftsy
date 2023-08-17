@@ -1,13 +1,13 @@
 [
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55106c",
-      "name": "Iphone 11",
-      "brand": "Apple",
+      "name": "TCL pro",
+      "brand": "Asus",
       "description": "Lorem ipsum dolor amet sit",
       "price": 200,
       "discount": 10,
-      "image": "img-phone-01.jpg",
-      "createdAt": "2023-08-10T23:31:37.396Z"
+      "image": "1692313148535_products_.png",
+      "createdAt": "2023-08-17T22:59:08.546Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55105c",
@@ -16,8 +16,8 @@
       "description": "Lorem ipsum dolor amet sit",
       "price": 150,
       "discount": 0,
-      "image": "img-phone-02.jpg",
-      "createdAt": "2023-08-10T23:32:30.303Z"
+      "image": "1692313187303_products_.webp",
+      "createdAt": "2023-08-17T22:59:47.310Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55104c",
@@ -26,8 +26,8 @@
       "description": "Lorem ipsum dolor amet sit",
       "price": 100,
       "discount": 20,
-      "image": "img-phone-03.jpg",
-      "createdAt": "2023-08-10T23:32:35.070Z"
+      "image": "1692313290595_products_.jpg",
+      "createdAt": "2023-08-17T23:01:30.621Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55103c",
@@ -46,8 +46,8 @@
       "description": "Lorem ipsum dolor amet sit",
       "price": 150,
       "discount": 10,
-      "image": "img-phone-02.jpg",
-      "createdAt": "2023-08-10T23:32:50.730Z"
+      "image": "1692313221575_products_.jpg",
+      "createdAt": "2023-08-17T23:00:21.582Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55101c",
@@ -56,8 +56,8 @@
       "description": "Lorem ipsum dolor amet sit",
       "price": 250,
       "discount": 50,
-      "image": "img-phone-03.jpg",
-      "createdAt": "2023-08-10T23:33:03.536Z"
+      "image": "1692313311612_products_.webp",
+      "createdAt": "2023-08-17T23:01:51.624Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55100c",
@@ -76,7 +76,47 @@
       "description": "Lorem ipsum dolor amet sit",
       "price": 350,
       "discount": 60,
-      "image": "img-phone-02.jpg",
-      "createdAt": "2023-08-10T23:32:58.298Z"
+      "image": "1692313242526_products_.jpeg",
+      "createdAt": "2023-08-17T23:00:42.533Z"
+   },
+   {
+      "id": "fe7b8d37-48b3-4e67-993d-b3e63069f996",
+      "name": "Nuevo celular",
+      "brand": "Asus",
+      "price": 100,
+      "discount": 3,
+      "description": "lorem ipsum",
+      "image": null,
+      "createdAt": "2023-08-17T22:14:21.958Z"
+   },
+   {
+      "id": "a3847b1c-c497-41e1-b34a-0c40f66089f2",
+      "name": "nuevo celular 2",
+      "brand": "Asus",
+      "price": 1232,
+      "discount": 1,
+      "description": "sdfsdf",
+      "image": null,
+      "createdAt": "2023-08-17T22:25:22.993Z"
+   },
+   {
+      "id": "f924ca2c-9743-4c4f-aab5-fcc98066093a",
+      "name": "nuevo celular 3",
+      "brand": "Motorola",
+      "price": 1232,
+      "discount": 2,
+      "description": "sdfsdf",
+      "image": null,
+      "createdAt": "2023-08-17T22:28:53.590Z"
+   },
+   {
+      "id": "cc1dc660-0f87-4bf4-ad23-0c14d78fd68a",
+      "name": "Huawai 5000",
+      "brand": "Huawei",
+      "price": 1000,
+      "discount": 2,
+      "description": "lorem ipsum",
+      "image": "1692311761889_products_.jpg",
+      "createdAt": "2023-08-17T22:48:17.630Z"
    }
 ]

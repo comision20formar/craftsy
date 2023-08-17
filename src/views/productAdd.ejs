@@ -15,7 +15,7 @@
                         <h4 class="card-title">Nuevo producto</h4>
                     </div>
                     <div class="card-body">
-                        <form action="" method="POST" class="row">
+                        <form action="" method="POST" class="row" enctype="multipart/form-data">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre del producto" name="name">
@@ -45,7 +45,7 @@
                               </div>
                               <div class="col-12 d-flex justify-content-end gap-2 mb-3">
                                 <label for="image" class="btn btn-secondary">Agregar imagen</label>
-                                <input hidden class="form-control" type="file" id="image">
+                                <input hidden class="form-control" type="file" id="image" name="image">
                                 <button class="btn btn-dark" type="submit">Guardar cambios</button>
                               </div>
                         </form>
