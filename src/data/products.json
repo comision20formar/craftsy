@@ -1,132 +1,132 @@
 [
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55106c",
-      "name": "TCL pro",
+      "name": "TCL 405",
       "brand": "Asus",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 200,
+      "description": "La amplia pantalla de 6,6” con una relación de aspecto de 20:9 brinda una excelente experiencia de visualización cinematográfica. Los diferentes modos de cuidado ocular y el modo lectura, brindan una experiencia de comodidad en cualquier momento.",
+      "price": 74599,
       "discount": 10,
       "image": "1692313148535_products_.png",
-      "createdAt": "2023-08-17T22:59:08.546Z"
+      "createdAt": "2023-08-24T19:27:19.992Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55105c",
-      "name": "Samsumg S20",
+      "name": "Samsumg S20 Plus",
       "brand": "Samsung",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 150,
+      "description": "* Se estima en relación con el perfil de uso de un usuario promedio/típico. Evaluado de forma independiente por Strategy Analytics entre el 8 y el 20 de diciembre de 2021 en Estados Unidos y el Reino Unido con versiones anteriores al lanzamiento de SM-S901, SM-S906, SM-S908 bajo la configuración predeterminada utilizando redes 5G Sub6 (NO probadas bajo la red de 5G mmWave). La duración real de la batería varía según el entorno de red, las funciones y las aplicaciones usadas, la frecuencia de llamadas y mensajes, la cantidad de cargas y muchos otros factores.",
+      "price": 350000,
       "discount": 0,
-      "image": "1692313187303_products_.webp",
-      "createdAt": "2023-08-17T22:59:47.310Z"
+      "image": "1692907586300_products_.png",
+      "createdAt": "2023-08-24T20:15:44.104Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55104c",
       "name": "Motorola X",
       "brand": "Motorola",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 100,
+      "description": "Las dimensiones del Motorola Moto X son: 65,3 mm de ancho, 129,3 mm de alto y 10,4 mm de grosor en su perfil, mientras que su peso es de 130 g.",
+      "price": 100000,
       "discount": 20,
-      "image": "1692313290595_products_.jpg",
-      "createdAt": "2023-08-17T23:01:30.621Z"
+      "image": "1692905108187_products_.webp",
+      "createdAt": "2023-08-24T20:15:52.739Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55103c",
-      "name": "Nokia 1100",
+      "name": "Nokia C21",
       "brand": "Nokia",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 50,
+      "description": "El Nokia C21 es un dispositivo con el sistema operativo Android 11 y que cuenta con una memoria RAM de 2 GB, un almacenamiento de 32 GB y una batería de 3000 mAh de capacidad. A nivel de rendimiento, este modelo dispone de un procesador Unisoc SC9863A y una gráfica Imagination Technologies PowerVR GE8322. Si lo que te gusta es la fotografía, con este Nokia C21 podrás hacer fotos gracias a una cámara trasera con una resolución máxima de 8 megapíxeles y una cámara frontal con resolución de 5 megapíxeles.",
+      "price": 50000,
       "discount": 0,
-      "image": "img-phone-01.jpg",
-      "createdAt": "2023-08-10T23:33:28.607Z"
+      "image": "1692906073605_products_.png",
+      "createdAt": "2023-08-24T20:15:33.273Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55102c",
-      "name": "Xiaomi 11",
+      "name": "NOTE 9 PRO 128gb 6gb",
       "brand": "Xiaomi",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 150,
+      "description": "Procesador premier, rendimiento potente de alto rendimiento Mediatek HelioG85. Redmi Note 9 tiene una pantalla: 6.53\" Full HD + DotDisplay. Batería de ultra capacidad de 5020mAh con carga rápida de 18W. El Redmi Note 9 está equipado con una cámara cuádruple IA de 48 MP y una cámara frontal de 13 MP.    El Redmi Note 9 cuenta con NFC (La disponibilidad puede variar entre mercados). Usa tu Redmi Note 9 como control remoto con su infrarrojo",
+      "price": 239000,
       "discount": 10,
-      "image": "1692313221575_products_.jpg",
-      "createdAt": "2023-08-17T23:00:21.582Z"
+      "image": "1692906678190_products_.png",
+      "createdAt": "2023-08-24T19:51:18.208Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55101c",
-      "name": "Asus Gamer",
+      "name": "Asus ROG 6 Pro",
       "brand": "Asus",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 250,
-      "discount": 50,
-      "image": "1692313311612_products_.webp",
-      "createdAt": "2023-08-17T23:01:51.624Z"
+      "description": "¡La leyenda ha evolucionado! El Asus ROG 6 Pro es la última encarnación del teléfono para juegos líder en el mundo. Aprovecha el poder de juego bruto de la última plataforma móvil Qualcomm® Snapdragon® 8+ Gen 1, con un nuevo sistema térmico GameCool 6 líder en su clase que le permite romper todas las barreras y romper todos los límites, y una pantalla de 165 Hz para una experiencia visual revolucionaria .",
+      "price": 250000,
+      "discount": 15,
+      "image": "1692906327058_products_.png",
+      "createdAt": "2023-08-24T19:45:27.070Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55100c",
-      "name": "Phillips",
+      "name": "Philips S388",
       "brand": "Phillips",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 150,
+      "description": "El Philips S388 pesa 136 g y tiene un grosor de 9,1 mm, mientras que mide 67,1 mm de alto y 131 mm de ancho.",
+      "price": 150000,
       "discount": 30,
-      "image": "img-phone-01.jpg",
-      "createdAt": "2023-08-10T23:33:34.043Z"
+      "image": "1692904824366_products_.webp",
+      "createdAt": "2023-08-24T20:15:25.190Z"
    },
    {
       "id": "2d1b55b6-79df-4f85-806f-fadc9a55117c",
-      "name": "Blackberry",
+      "name": "XIAOMI REDMI Note 11 PRO Plus",
       "brand": "Blackberry",
-      "description": "Lorem ipsum dolor amet sit",
-      "price": 350,
+      "description": "Exquisito diseño de vidrio: Midiendo solo 8.17 mm de grosor\r\nPantalla DotDisplay FHD+ de 6,79\" MEMORIA RAM: 4 GB LPDDR5",
+      "price": 352800,
       "discount": 60,
-      "image": "1692313242526_products_.jpeg",
-      "createdAt": "2023-08-17T23:00:42.533Z"
+      "image": "1692907078274_products_.png",
+      "createdAt": "2023-08-24T19:57:58.290Z"
    },
    {
       "id": "fe7b8d37-48b3-4e67-993d-b3e63069f996",
-      "name": "Nuevo celular",
-      "brand": "Asus",
-      "price": 100,
-      "discount": 3,
-      "description": "lorem ipsum",
-      "image": null,
-      "createdAt": "2023-08-17T22:14:21.958Z"
+      "name": "Galaxy A14",
+      "brand": "Samsung",
+      "price": 122999,
+      "discount": 30,
+      "description": "Ampliá tu vista con la pantalla Infinity-V de 6.6” en el Galaxy A14 y experimentá todo en colores verdaderos y de alta definición con la tecnología de pantalla FHD+.",
+      "image": "1692905666372_products_.webp",
+      "createdAt": "2023-08-24T19:34:35.608Z"
    },
    {
       "id": "a3847b1c-c497-41e1-b34a-0c40f66089f2",
-      "name": "nuevo celular 2",
+      "name": "Galaxy A51 (2019)",
       "brand": "Asus",
-      "price": 1232,
-      "discount": 1,
-      "description": "sdfsdf",
-      "image": null,
-      "createdAt": "2023-08-17T22:25:22.993Z"
+      "price": 549900,
+      "discount": 20,
+      "description": "Con un acabado premium en cristal, un módulo de cámara con un diseño elegante y colores que transmiten energía, el Galaxy A51 5G lleva inscrita su identidad Awesome en su aspecto elegante y minimalista.",
+      "image": "1692905854225_products_.webp",
+      "createdAt": "2023-08-24T19:37:34.234Z"
    },
    {
       "id": "f924ca2c-9743-4c4f-aab5-fcc98066093a",
-      "name": "nuevo celular 3",
-      "brand": "Motorola",
+      "name": "Iphone 13 PRO MAX exhibición",
+      "brand": "Apple",
       "price": 1232,
       "discount": 2,
-      "description": "sdfsdf",
-      "image": null,
-      "createdAt": "2023-08-17T22:28:53.590Z"
+      "description": "iPhone 13 Pro Max. El mayor avance en el sistema de cámaras Pro hasta ahora. Pantalla Super Retina XDR con ProMotion que brinda una respuesta más rápida y fluida. Chip A15 Bionic para un rendimiento fuera de serie. Diseño resistente y la mayor duración de batería jamás vista en un iPhone.1",
+      "image": "1692905974804_products_.png",
+      "createdAt": "2023-08-24T19:39:34.819Z"
    },
    {
       "id": "cc1dc660-0f87-4bf4-ad23-0c14d78fd68a",
-      "name": "Huawai 5000",
+      "name": "HUAWEI Mate 50 Pro",
       "brand": "Huawei",
-      "price": 1000,
-      "discount": 2,
-      "description": "lorem ipsum",
-      "image": "1692311761889_products_.jpg",
-      "createdAt": "2023-08-17T22:48:17.630Z"
+      "price": 104000,
+      "discount": 20,
+      "description": "",
+      "image": "1692907270204_products_.png",
+      "createdAt": "2023-08-24T20:01:10.217Z"
    },
    {
       "id": "e34a892b-c1d2-4c76-bb59-567dce8d7023",
-      "name": "Nuevo producto validado",
+      "name": "BlackBerry Curve 9360",
       "brand": "Blackberry",
-      "price": 900,
+      "price": 90000,
       "discount": 0,
-      "description": "esta es la descripción del producto",
-      "image": null,
-      "createdAt": "2023-08-22T23:27:31.186Z"
+      "description": "El BlackBerry Curve 9360 es un teléfono inteligente de nivel básico que se anunció y lanzó en agosto de 2011. La parte frontal integra a la perfección las teclas de teléfono, menú y retroceso, y alberga un teclado QWERTY físico clásico estilo pollito.",
+      "image": "1692906198608_products_.png",
+      "createdAt": "2023-08-24T20:16:04.952Z"
    }
 ]

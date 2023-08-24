@@ -60,10 +60,9 @@
                         <img src="/images/<%= product.image ? product.image : 'img-phone-01.jpg'  %>" alt="Imagen phone 1">
                         <div class="home__main__article--description">
                             <h4><%= product.name %></h4>
-                            <p><%= product.description %></p>
                             <a href="/products/detail/<%= product.id %>">ver más</a>
                         </div>
-                        <h3 class="home__main__article--discount"><%= product.discount %>%</h3>
+                        <h4 class="home__main__article--discount"><%= product.discount %>% OFF</h4>
                     </article>
                 <% } %>
                
