@@ -14,7 +14,7 @@
                   <div class="card-body">
                     <h3>Iniciá sesión</h3>
                     <hr>
-                    <form class="row" action="">
+                    <form class="row" method="POST">
                         <div class="col-12 mb-3">
                             <label class="form-label" for="email">Email</label>
                             <input class="forms__control--input" type="email" id="email" name="email">
@@ -27,12 +27,12 @@
                       
                         <div class="d-flex justify-content-around">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="remember">
+                                <input class="form-check-input" type="checkbox" value="" id="remember" name="remember">
                                 <label class="form-check-label" for="remember">
                                   Recordame
                                 </label>
                               </div>
-                            <button class="buttons__primary">Ingresá</button>
+                            <button class="buttons__primary" type="submit">Ingresá</button>
                         </div>
                     </form>
                   </div>

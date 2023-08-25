@@ -1,12 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const {register, login, profile} = require('../controllers/usersController');
-
+const {
+  register,
+  processRegister,
+  login,
+  processLogin,
+  profile,
+  updateProfile,
+} = require("../controllers/usersController");
 
 /* /users */
-router.get('/register', register);
-router.get('/login', login);
-router.get('/profile', profile);
+router
+    .get("/register", register)
+    .post("/register",processRegister)
+    .get("/login", login)
+    .post("/login",processLogin)
+    .get("/profile", profile)
+    .put("/update-profile",updateProfile)
 
 module.exports = router;
