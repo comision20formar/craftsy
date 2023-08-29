@@ -4,13 +4,15 @@
       "name": "Eric",
       "surname": "Mena",
       "email": "menaericdaniel@gmail.com",
-      "password": "$2a$10$6dmNwOGaBNiU7FKTyEqLx.5lRzw.7L5xrzPxQyAOtMWAe/jpFpJqa"
+      "password": "$2a$10$6dmNwOGaBNiU7FKTyEqLx.5lRzw.7L5xrzPxQyAOtMWAe/jpFpJqa",
+      "rol" : "admin"
    },
    {
       "id": "833c1598-cd1b-4da3-9aff-3994e443f625",
       "name": "José",
       "surname": "Maiorano",
       "email": "jose@gmail.com",
-      "password": "$2a$10$..mVU.TADsOwZBrN3yYvxeIFgBjZ4W.DXvUS3LwJPO9NxrNqOHFRK"
+      "password": "$2a$10$..mVU.TADsOwZBrN3yYvxeIFgBjZ4W.DXvUS3LwJPO9NxrNqOHFRK",
+      "rol" : "user"
    }
 ]

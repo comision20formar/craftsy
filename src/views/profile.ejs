@@ -17,11 +17,11 @@
                     <form class="row" action="/users/update-profile?_method=PUT" method="POST">
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="name">Nombre</label>
-                            <input class="form-control" type="text" id="name" name="name">
+                            <input class="form-control" type="text" id="name" name="name" value="<%= name %>">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="surname">Apellido</label>
-                            <input class="form-control" type="text" id="surname" name="surname">
+                            <input class="form-control" type="text" id="surname" name="surname" value="<%= surname %>">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="birthday">Cumpleaños</label>
