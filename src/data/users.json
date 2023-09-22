@@ -1,11 +1,14 @@
 [
    {
       "id": "8666f31d-0505-42d0-9784-45f573250b91",
-      "name": "Eric",
+      "name": "Eric Daniel",
       "surname": "Mena",
       "email": "menaericdaniel@gmail.com",
       "password": "$2a$10$6dmNwOGaBNiU7FKTyEqLx.5lRzw.7L5xrzPxQyAOtMWAe/jpFpJqa",
-      "rol" : "admin"
+      "rol": "admin",
+      "birthday": "",
+      "gender": "",
+      "about": ""
    },
    {
       "id": "833c1598-cd1b-4da3-9aff-3994e443f625",
@@ -13,6 +16,9 @@
       "surname": "Maiorano",
       "email": "jose@gmail.com",
       "password": "$2a$10$..mVU.TADsOwZBrN3yYvxeIFgBjZ4W.DXvUS3LwJPO9NxrNqOHFRK",
-      "rol" : "user"
+      "rol": "user",
+      "birthday": null,
+      "gender": null,
+      "about": null
    }
 ]

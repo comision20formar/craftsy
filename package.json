@@ -24,5 +24,8 @@
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0",
     "uuid": "^9.0.0"
+  },
+  "nodemonConfig": {
+    "ignore": ["src/data/*.json"]
   }
 }
