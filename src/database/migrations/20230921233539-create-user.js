@@ -29,6 +29,15 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
+      gender : {
+        type : Sequelize.STRING
+      },
+       birthday : {
+        type : Sequelize.DATE
+      },
+      about : {
+        type : Sequelize.TEXT
+      },
       roleId: {
         type: Sequelize.INTEGER,
         references : {

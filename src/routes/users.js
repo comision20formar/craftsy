@@ -14,6 +14,7 @@ const registerValidator = require("../validations/registerValidator");
 const loginValidator = require("../validations/loginValidator");
 const checkUserLogin = require("../middlewares/checkUserLogin");
 const checkNotUserLogin = require("../middlewares/checkNotUserLogin");
+const profileValidator = require("../validations/profileValidator");
 
 /* /users */
 router
@@ -22,7 +23,7 @@ router
     .get("/login", checkNotUserLogin, login)
     .post("/login",loginValidator, processLogin)
     .get("/profile",checkUserLogin, profile)
-    .put("/update-profile",updateProfile)
+    .put("/update-profile",profileValidator, updateProfile)
     .get("/logout",logout)
 
 module.exports = router;
