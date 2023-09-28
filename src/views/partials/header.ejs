@@ -14,7 +14,7 @@
                 <li><a href="/users/login">login</a></li>
                 <li><a href="/users/register">registro</a></li>
             <% }else{ %>
-                <% if (userLogin.rol === "admin") { %>
+                <% if (userLogin.rol === 1) { %>
                     <li><a href="/admin">admin</a></li>
                 <% } %>
                 <li><a href="/users/profile">Hola <%= userLogin.name %>!</a></li>
