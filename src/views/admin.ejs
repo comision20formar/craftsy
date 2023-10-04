@@ -36,15 +36,25 @@
                                         <div class="d-flex flex-column gap-2 flex-md-row justify-content-between my-3">
                                             <a href="/products/add" class="btn btn-dark"><i class="fas fa-plus"></i>
                                                 Agregar</a>
-                                            <form action="/products/search"
+                                            <form action="/products/filter"
                                                 class="d-flex flex-column flex-md-row  gap-2" method="GET">
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" name="brand">
+                                                    <% if (locals.brand) { %>
+                                                        <% brands.forEach(item => { %>                                                        
+                                                            <option <%= +brand === item.id && 'selected' %>  value="<%= item.id %>"><%= item.name %></option>
+                                                        <% }) %>
+                                                    <% }else{ %>
                                                     <option selected hidden>Filtrar por marca</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <% brands.forEach(brand => { %>                                                        
+                                                        <option value="<%= brand.id %>"><%= brand.name %></option>
+                                                    <% }) %>
+                                                    <% } %>
                                                 </select>
-
+                                                <button type="submit" class="btn btn-dark">
+                                                    Filtrar
+                                                </button>
+                                            </form>
+                                            <form action="/products/search" class="d-flex flex-column flex-md-row  gap-2" method="GET">
                                                 <input type="text" class="form-control" placeholder="Buscar..."
                                                     name="keyword">
                                                 <button type="submit" class="btn btn-dark">
@@ -59,6 +69,7 @@
                                                         <th scope="col">#</th>
                                                         <th scope="col">Nombre</th>
                                                         <th scope="col">Marca</th>
+                                                        <th scope="col">Sección</th>
                                                         <th scope="col">Precio</th>
                                                         <th scope="col">Descuento</th>
                                                         <th scope="col">P. Final</th>
@@ -66,7 +77,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <% products.forEach(({id, name, brand, price, discount, image,
+                                                    <% products.forEach(({id, name, brand, section, price, discount, images,
                                                         description},index)=> { %>
                                                         <tr>
                                                             <th scope="row">
@@ -76,7 +87,10 @@
                                                                 <%= name %>
                                                             </td>
                                                             <td>
-                                                                <%= brand ? brand : "sin especificar" %>
+                                                                <%= brand.name %>
+                                                            </td>
+                                                            <td>
+                                                                <%= section.name %>
                                                             </td>
                                                             <td>
                                                                 <%= price %>
@@ -98,7 +112,7 @@
                                                                     </button>
 
                                                                     <%- include('partials/modalProductDetail',{ id,
-                                                                        name, price, discount, description, image })%>
+                                                                        name, price, discount, description, images })%>
 
                                                                         <a href="/products/edit/<%= id %>"
                                                                             class="btn btn-sm btn-success">

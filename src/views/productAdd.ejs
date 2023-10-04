@@ -14,7 +14,7 @@
               </div>
               <div class="card-body">
                 <form action="" method="POST" class="row" enctype="multipart/form-data">
-                  <div class="col-12 col-md-6 mb-3">
+                  <div class="col-12 mb-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input type="text" class="form-control <%= locals.errors && (errors.name && 'is-invalid') %>" id="name" placeholder="Nombre del producto"
                       name="name" value="<%= locals.old && (old.name && old.name) %>">
@@ -25,12 +25,25 @@
                     <select class="form-select <%= locals.errors && (errors.brand && 'is-invalid') %>" aria-label="Default select example" name="brand" id="brand">
                       <option selected hidden value="">Seleccione...</option>
                       <% brands.forEach(brand=> { %>
-                        <option value="<%= brand.name %>" <%= locals.old && (old.brand === brand.name && 'selected' )%> >
+                        <option value="<%= brand.id %>" <%= locals.old && (old.brand === brand.id && 'selected' )%> >
                           <%= brand.name %>
                         </option>
                         <% }) %>
                     </select>
                     <small class="ms-2 text-danger"><%= locals.errors && (errors.brand && errors.brand.msg) %></small>
+
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="section" class="form-label">Sección</label>
+                    <select class="form-select <%= locals.errors && (errors.section && 'is-invalid') %>" aria-label="Default select example" name="section" id="section">
+                      <option selected hidden value="">Seleccione...</option>
+                      <% sections.forEach(section=> { %>
+                        <option value="<%= section.id %>" <%= locals.old && (old.section === section.id && 'selected' )%> >
+                          <%= section.name %>
+                        </option>
+                        <% }) %>
+                    </select>
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.section && errors.section.msg) %></small>
 
                   </div>
                   <div class="col-12 col-md-6 mb-3">
@@ -41,7 +54,7 @@
                   </div>
                   <div class="col-12 col-md-6 mb-3">
                     <label for="discount" class="form-label">Descuento</label>
-                    <input type="number" class="form-control" id="discount" name="discount">
+                    <input type="number" class="form-control" id="discount" name="discount" value="0">
                   </div>
 
                   <div class="col-12  mb-3">
@@ -50,9 +63,9 @@
                     <small class="ms-2 text-danger"><%= locals.errors && (errors.description && errors.description.msg) %></small>
                   </div>
                   <div class="col-12 d-flex justify-content-end align-items-center gap-2 mb-3">
-                    <small class="ms-2 text-danger"><%= locals.errors && (errors.image && errors.image.msg) %></small>
-                    <label for="image" class="btn btn-secondary">Agregar imagen</label>
-                    <input hidden class="form-control" type="file" id="image" name="image">
+                    <small class="ms-2 text-danger"><%= locals.errors && (errors.images && errors.images.msg) %></small>
+                    <label for="images" class="btn btn-secondary">Agregar imágenes</label>
+                    <input hidden class="form-control" type="file" id="images" name="images" multiple>
                     <button class="btn btn-dark" type="submit">Guardar cambios</button>
                   </div>
                 </form>

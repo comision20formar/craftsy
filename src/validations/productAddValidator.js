@@ -5,6 +5,8 @@ module.exports = [
         .notEmpty().withMessage('El nombre del producto es obligatorio'),
     check('brand')
         .notEmpty().withMessage('La marca es requerida'),
+        check('section')
+        .notEmpty().withMessage('La sección es requerida'),
     check('price')
         .notEmpty().withMessage('Debes indicar el precio').bail()
         .isDecimal().withMessage('El precio debe ser un número'),
@@ -12,11 +14,11 @@ module.exports = [
         .notEmpty().withMessage('La descripción es requerida').bail()
         .isLength({
             min : 20,
-            max : 500
+            max : 800
         }).withMessage('La descripción debe tener entre 20 y 500 caracteres'),
-    body('image')
+    body('images')
         .custom((value, {req}) => {
-           if(req.file){
+           if(req.files.length){
                 return true
            }
            return false

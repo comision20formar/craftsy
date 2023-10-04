@@ -2,27 +2,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Brands', {
+    await queryInterface.createTable('Origins', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      country: {
         type: Sequelize.STRING,
         allowNull : false
       },
-      image: {
+      flag: {
         type: Sequelize.STRING
-      },
-      originId : {
-        type : Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Origins'
-          }
-        }
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +27,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Brands');
+    await queryInterface.dropTable('Origins');
   }
 };
