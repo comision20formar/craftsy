@@ -18,7 +18,7 @@ module.exports = [
         }).withMessage('La descripción debe tener entre 20 y 500 caracteres'),
     body('images')
         .custom((value, {req}) => {
-           if(req.files.length){
+           if(req.files.image){
                 return true
            }
            return false

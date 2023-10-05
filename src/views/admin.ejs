@@ -7,11 +7,14 @@
         <%- include('partials/header') %>
             <main class="container">
                 <div class="row mt-5">
-                    <div class="col-12 col-md-12  mx-auto">
+                    <div class="col-12 col-md-10  mx-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Productos</h4>
-                            </div>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                      <li class="breadcrumb-item"><a class="text-primary text-decoration-underline" href="/admin">Productos</a></li>
+                                    </ol>
+                                  </nav>                            </div>
                             <div class="card-body">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -77,7 +80,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <% products.forEach(({id, name, brand, section, price, discount, images,
+                                                    <% products.forEach(({id, name, brand, section, price, discount, images, image,
                                                         description},index)=> { %>
                                                         <tr>
                                                             <th scope="row">
@@ -112,7 +115,7 @@
                                                                     </button>
 
                                                                     <%- include('partials/modalProductDetail',{ id,
-                                                                        name, price, discount, description, images })%>
+                                                                        name, price, discount, description, images, image })%>
 
                                                                         <a href="/products/edit/<%= id %>"
                                                                             class="btn btn-sm btn-success">

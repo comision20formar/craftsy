@@ -4,13 +4,29 @@ const db = require('../database/models');
 module.exports = {
     index : (req,res) => {
 
-        const tutorials = readJSON('tutorials.json');
-        const products = readJSON('products.json');
-
-        return res.render('index',{
-            tutorials,
-            products
+        const tutorials = db.Tutorial.findAll();
+        const sections = db.Section.findAll({
+            include : [
+                {
+                    association : 'products',
+                    include : [
+                        {
+                            all : true
+                        }
+                    ]
+                }
+            ]
         })
+        Promise.all([tutorials, sections])
+            .then(([tutorials, sections]) => {
+                //return res.send(sections)
+                return res.render('index',{
+                    tutorials,
+                    sections
+                })
+            })
+            .catch(error => console.log(error))
+       
     },
     admin : (req,res) => {
 

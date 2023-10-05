@@ -130,9 +130,13 @@
     gap: 2%;
   }
 
-  .home__main__article {
-    width: 49%;
+  .home__main__section {
+    display: flex;
   }
+
+/*   .home__main__article {
+    width: 49%;
+  } */
 
   .home__aside__section__article {
     width: 49%;

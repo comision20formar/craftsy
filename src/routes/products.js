@@ -10,9 +10,23 @@ const router = express.Router();
 router
     .get('/detail/:id', detail)
     .get('/add', add)
-    .post('/add', upload.array('images'), productAddValidator, create)
+    .post('/add', upload.fields([
+      {
+        name: "image",
+      },
+      {
+        name: "images",
+      },
+    ]), productAddValidator, create)
     .get('/edit/:id', edit)
-    .put('/update/:id', upload.single('image'),update)
+    .put('/update/:id', upload.fields([
+      {
+        name: "image",
+      },
+      {
+        name: "images",
+      },
+    ]),update)
     .delete('/remove/:id',remove)
     .get('/filter',filter)
 

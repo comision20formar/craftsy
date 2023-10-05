@@ -12,7 +12,13 @@
             <div class="col-12 col-md-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Editar producto</h4>
+                      <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a class="text-primary text-decoration-underline" href="/admin">Productos</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Editando: <%= name %></li>
+                        </ol>
+                      </nav>
+                      
                     </div>
                     <div class="card-body">
                         <form action="/products/update/<%= id %>?_method=PUT" method="POST" class="row" enctype="multipart/form-data">
@@ -21,15 +27,24 @@
                           </div>
                           <div class="col-12 col-md-8">
                             <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
+                            <div class="col-12 mb-3">
                                 <label for="formGroupExampleInput" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre del producto" name="name" value="<%= name %>">
                               </div>
                               <div class="col-12 col-md-6 mb-3">
                                 <label for="formGroupExampleInput2" class="form-label">Marca</label>
                                 <select class="form-select" aria-label="Default select example" name="brand">
-                                  <% brands.forEach(item => { %>
-                                    <option <%= item.name === brand && 'selected' %> value="<%= item.name %>"><%= item.name %></option>
+                                  <% brands.forEach(brand => { %>
+                                    <option <%= brand.id === brandId && 'selected' %> value="<%= brand.id %>"><%= brand.name %></option>
+                                  <% }) %>
+                                  
+                                  </select>
+                              </div>
+                              <div class="col-12 col-md-6 mb-3">
+                                <label for="formGroupExampleInput2" class="form-label">Sección</label>
+                                <select class="form-select" aria-label="Default select example" name="section">
+                                  <% sections.forEach(section => { %>
+                                    <option <%= section.id === sectionId && 'selected' %> value="<%= section.id %>"><%= section.name %></option>
                                   <% }) %>
                                   
                                   </select>
@@ -49,8 +64,10 @@
                               </div>
                             </div>
                               <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                                <label for="image" class="btn btn-secondary">Cambiar imagen</label>
-                                <input hidden class="form-control" type="file" id="image" name="image">
+                                <label for="image" class="btn btn-secondary">Cambiar imagen principal</label>
+                                <input hidden class="form-control" type="file" id="image" name="image" >
+                                <label for="images" class="btn btn-secondary">Cambiar imágenes</label>
+                                <input hidden class="form-control" type="file" id="images" name="images">
                                 <button class="btn btn-success" type="submit">Guardar cambios</button>
                               </div>
                             </div>

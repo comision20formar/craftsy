@@ -1,13 +1,16 @@
-const { readJSON } = require("../../data");
+const db = require("../../database/models");
 
 module.exports = (req, res) => {
     
-    const products = readJSON("products.json");
+   db.Product.findByPk(req.params.id, {
+    include : ['images']
+   })
+    .then(product => {
+      return res.render("productDetail", {
+        product,
+      });
+    })
+    .catch(error => console.log(error))
 
-    const id = req.params.id;
-    const product = products.find((product) => product.id === id);
-
-    return res.render("productDetail", {
-      product,
-    });
+  
   }

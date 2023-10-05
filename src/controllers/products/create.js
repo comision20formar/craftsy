@@ -16,24 +16,29 @@ module.exports = (req, res) => {
         discount : discount || 0,
         description : description.trim(),
         brandId : brand,
-        sectionId : section
+        sectionId : section,
+        image : req.files.image ? req.files.image[0].filename : null
       })
         .then(product => {
-          if(req.files.length){
-            const images = req.files.map((file,index) => {
+
+          if(req.files.images){
+            const images = req.files.images.map((file) => {
                 return {
                   file : file.filename,
-                  main : index === 0 ?  true : false,
+                  main : false,
                   productId : product.id,
                 }
             })
 
             db.Image.bulkCreate(images, {
               validate : true
-            }).then(response => console.log(response))
+            }).then(response => {
+              return res.redirect('/admin');
+            })
+          }else{
+            return res.redirect('/admin');
 
           }
-          return res.redirect('/admin');
         })
         .catch(error => console.log(error))
      

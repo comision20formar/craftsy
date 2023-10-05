@@ -1,32 +1,62 @@
 const { unlinkSync, existsSync } = require("fs");
-const { readJSON, writeJSON } = require("../../data");
+const db = require("../../database/models");
 
 module.exports = (req, res) => {
-  const products = readJSON("products.json");
   const id = req.params.id;
-  const { name, brand, description, price, discount } = req.body;
+  const { name, brand, section, description, price, discount } = req.body;
 
-  const productsModify = products.map((product) => {
-    if (product.id === id) {
-
-      req.file &&
+  db.Product.findByPk(id, {
+    include: ["images"],
+  })
+    .then((product) => {
+      req.files.image &&
         existsSync(`./public/images/${product.image}`) &&
         unlinkSync(`./public/images/${product.image}`);
 
-      product.name = name.trim();
-      product.brand = brand;
-      product.description = description.trim();
-      product.price = +price;
-      product.discount = +discount;
-      product.createdAt = new Date();
-      product.image = req.file ? req.file.filename : product.image;
+      db.Product.update(
+        {
+          name: name.trim(),
+          price,
+          discount,
+          brandId: brand,
+          sectionId: section,
+          description: description.trim(),
+          image: req.files.image ? req.files.image[0].filename : product.image,
+        },
+        {
+          where: {
+            id,
+          },
+        }
+      ).then(() => {
+        if (req.files.images) {
+          product.images.forEach((image) => {
+            existsSync(`./public/images/${image.file}`) &&
+              unlinkSync(`./public/images/${image.file}`);
+          });
 
-    }
-
-    return product;
-  });
-
-  writeJSON(productsModify, "products.json");
-
-  return res.redirect("/admin");
+          db.Image.destroy({
+            where: {
+              productId: id,
+            },
+          }).then(() => {
+            const images = req.files.images.map((file) => {
+              return {
+                file: file.filename,
+                main: false,
+                productId: product.id,
+              };
+            });
+            db.Image.bulkCreate(images, {
+              validate: true,
+            }).then((response) => {
+              return res.redirect("/admin");
+            });
+          });
+        } else {
+          return res.redirect("/admin");
+        }
+      });
+    })
+    .catch((error) => console.log(error));
 };

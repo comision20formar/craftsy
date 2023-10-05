@@ -1,0 +1,15 @@
+<article class="col-12 col-md-6 mb-3">
+    <div class="card">
+        <div class="card-body">
+            <img src="/images/<%= product.images[0].file  %>" class="img-fluid" alt="Imagen phone 1">
+            <div class="home__main__article--description">
+                <h4><%= product.name %></h4>
+                <a href="/products/detail/<%= product.id %>">ver más</a>
+            </div>
+            <% if (product.discount) { %>
+                <h4 class="home__main__article--discount"><%=  product.discount %>% OFF</h4>
+            <% } %>
+        </div>    
+    </div>
+   
+</article>
