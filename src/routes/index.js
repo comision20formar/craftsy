@@ -8,6 +8,6 @@ const checkAdmin = require('../middlewares/checkAdmin');
 
 /* / */
 router.get('/', index);
-router.get('/admin',checkAdmin, admin)
+router.get('/admin', admin)
 
 module.exports = router;

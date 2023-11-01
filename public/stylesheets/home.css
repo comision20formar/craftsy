@@ -160,6 +160,14 @@
 
   .home__banner {
     display: block;
+    height: 320px;
+    overflow: hidden;
+  }
+
+  
+  .home__banner img{
+    width: 100%;
+    object-fit: cover;
   }
 
   .home__banner--box-image {

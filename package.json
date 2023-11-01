@@ -26,6 +26,6 @@
     "uuid": "^9.0.0"
   },
   "nodemonConfig": {
-    "ignore": ["src/data/*.json"]
+    "ignore": ["src/data/*.json", "public/javascripts/*"]
   }
 }

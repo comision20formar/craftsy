@@ -9,47 +9,7 @@
     <%- include('partials/header') %>
 
     <div class="home__banner">
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active home__banner--box-image" style="
-              background-image: url('/images/banner/banner_1.jpg');
-              ">
-                </div>
-                <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/images/banner/banner_2.jpg');
-              ">
-                </div>
-                <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/images/banner/banner_3.jpg');
-              ">
-                </div>
-                <div class="carousel-item home__banner--box-image" style="
-              background-image: url('/images/banner/banner_4.jpg');
-              ">
-                </div>
-
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+        <img src="/images/banner/banner_1.jpg" alt="">
     </div>
     <div class="row">
 
@@ -114,43 +74,18 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="/javascripts/glider.js"></script>
+    <script src="/javascripts/gliderCarousel.js"></script>
+    <script src="/javascripts/index.js"></script>
+
     <script>
-        window.addEventListener("load", function () {
-            new Glider(document.querySelector(".glider"), {
-                slidesToShow: 1,
-                dots: '.dots',
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
-                },
-                draggable: true,
-                responsive: [
-                    {
-                        // screens greater than >= 775px
-                        breakpoint: 768,
-                        settings: {
-                            // Set to `auto` and provide item width to adjust to viewport
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            duration: 0.25,
-                            /* itemWidth: 150, */
-
-                        }
-                    }, {
-                        // screens greater than >= 1024px
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 1,
-                            duration: 0.25,
-                            
-
-                        }
-                    }
-                ]
-            });
-        });
+        Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+        })
     </script>
+
 </body>
 
 </html>
