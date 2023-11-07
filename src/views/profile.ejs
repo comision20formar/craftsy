@@ -18,21 +18,23 @@
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="name">Nombre</label>
                             <input class="form-control" type="text" id="name" name="name" value="<%= name %>">
-                            <small class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
+                            <small class="ms-2 text-danger" id="msgError-name"><%= locals.errors && (errors.name && errors.name.msg) %></small>
 
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="surname">Apellido</label>
                             <input class="form-control" type="text" id="surname" name="surname" value="<%= surname %>">
-                            <small class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
+                            <small class="ms-2 text-danger" id="msgError-surnname"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="birthday">Cumpleaños</label>
                             <input class="form-control" type="date" id="birthday" name="birthday" value="<%= birthday %>">
+                            <small class="ms-2 text-danger" id="msgError-birthday"><%= locals.errors && (errors.birthday && errors.birthday.msg) %></small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label class="form-label" for="gender">Género</label>
                             <select class="form-select" name="gender" id="gender">
+                                <option value="" hidden selected>Seleccione...</option>
                                 <option value="hombre" <%= gender === "hombre" && 'selected' %>>Hombre</option>
                                 <option value="mujer" <%= gender === "mujer" && 'selected' %>>Mujer</option>
                                 <option value="prefiero no decirlo" <%= gender === "prefiero no decirlo" && 'selected' %>>Prefiero no decirlo</option>
@@ -46,14 +48,14 @@
                                 </div>
                                 <div class="col-12 mb-3">
                                   <label for="province">Provincia</label>
-                                    <select id="province" class="form-control" name="province">
+                                    <select id="province" class="form-control" name="province" >
                                       <option selected hidden>Elija la provincia...</option>
                                     </select>
                                 </div>
                                 <div class="col-12 mb-3">
                                   <label for="city">Localidad</label>
-                                    <select id="city" class="form-control" name="city">
-                                      <option selected hidden>Elija la provincia...</option>
+                                    <select id="city" class="form-control" name="city" disabled>
+                                      <option selected hidden>Elija la localidad...</option>
                                     </select>
                                 </div>
                             </div>
@@ -65,7 +67,7 @@
                             <textarea style="resize: none;" name="about" id="about" rows="5" class="form-control"><%= about %></textarea>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-dark">Registrate</button>
+                            <button class="btn btn-dark">Guardar cambios</button>
                         </div>
                     </form>
                   </div>
@@ -73,5 +75,7 @@
             </div>
         </div>
     </main>
+    <script src="/javascripts/moment.js"></script>
+    <script src="/javascripts/profile.js"></script>
 </body>
 </html>

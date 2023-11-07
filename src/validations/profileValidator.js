@@ -1,5 +1,5 @@
-const { check} = require("express-validator");
-const db = require('../database/models');
+const moment = require('moment');
+const { check, body} = require("express-validator");
 
 module.exports = [
   check("name")
@@ -18,4 +18,24 @@ module.exports = [
     .bail()
     .isAlpha('es-ES',{ignore: ' '})
     .withMessage("Solo se permiten caracteres alfabéticos"),
+  body('birthday')
+    .custom((value) => {
+      const birthday = moment(value);
+      const minDate = moment().subtract(100,'years');
+
+      if(birthday.isBefore(minDate)){
+        throw new Error("Eppaa.. tan viejo/a sos?? Aguanta...")
+      }
+      return true
+    })
+    .custom((value) => {
+      const birthday = moment(value);
+      const currentDate = moment();
+
+      if(birthday.isAfter(currentDate)){
+        throw new Error("Andaa... terminator??")
+      }
+      return true
+    })
+
 ];

@@ -12,7 +12,7 @@ module.exports = (req,res) => {
             {
                 name : name.trim(),
                 surname: surname.trim(),
-                birthday,
+                birthday : birthday || null,
                 gender,
                 about : about.trim()
             },
