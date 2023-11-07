@@ -11,6 +11,8 @@ const localsCheck = require('./middlewares/localsCheck');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const apiRouter = require('./routes/apis')
+
 const cookieCheck = require('./middlewares/cookieCheck');
 
 const app = express();
@@ -38,6 +40,7 @@ app.use(localsCheck);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
+app.use('/apis', apiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

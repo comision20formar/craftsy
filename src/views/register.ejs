@@ -12,7 +12,7 @@
             <div class="card-body">
               <h3>Registrate</h3>
               <hr />
-              <form class="row" method="POST">
+              <form class="row" method="POST" id="formRegister">
                 <div class="col-12 col-md-6 mb-3">
                   <label class="form-label" for="name">Nombre</label>
                   <input
@@ -22,7 +22,7 @@
                     name="name"
                     value="<%= locals.old && (old.name && old.name) %>"
                   />
-                  <small class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
+                  <small id="msgError-name" class="ms-2 text-danger"><%= locals.errors && (errors.name && errors.name.msg) %></small>
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <label class="form-label" for="surname">Apellido</label>
@@ -33,7 +33,7 @@
                     name="surname"
                     value="<%= locals.old && (old.surname&& old.surname) %>"
                   />
-                  <small class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
+                  <small  id="msgError-surname"  class="ms-2 text-danger"><%= locals.errors && (errors.surname && errors.surname.msg) %></small>
 
                 </div>
                 <div class="col-12 mb-3">
@@ -45,18 +45,24 @@
                     name="email"
                     value="<%= locals.old && (old.email && old.email) %>"
                   />
-                  <small class="ms-2 text-danger"><%= locals.errors && (errors.email && errors.email.msg) %></small>
+                  <small  id="msgError-email"  class="ms-2 text-danger"><%= locals.errors && (errors.email && errors.email.msg) %></small>
 
                 </div>
                 <div class="col-12 col-md-6 mb-3">
                   <label class="form-label" for="password">Contraseña</label>
-                  <input
+
+                  <div class="input-group mb-3">
+                    <input
                     class="form-control <%= locals.errors && (errors.password && 'is-invalid') %>"
                     type="password"
                     id="password"
                     name="password"
-                  />
-                  <small class="ms-2 text-danger"><%= locals.errors && (errors.password && errors.password.msg) %></small>
+                  />                    
+                  <span class="input-group-text"><i id="viewPassword" class="fa fa-eye"></i></span>
+                  </div>
+                  
+                 
+                  <small  id="msgError-password"  class="ms-2 text-danger"><%= locals.errors && (errors.password && errors.password.msg) %></small>
 
                 </div>
                 <div class="col-12 col-md-6 mb-3">
@@ -69,10 +75,11 @@
                     id="password2"
                     name="password2"
                   />
-                  <small class="ms-2 text-danger"><%= locals.errors && (errors.password2 && errors.password2.msg) %></small>
+                  <small  id="msgError-password2"  class="ms-2 text-danger"><%= locals.errors && (errors.password2 && errors.password2.msg) %></small>
 
                 </div>
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-between">
+                  <small  id="msgError-empty"  class="ms-2 text-danger"></small>
                   <button class="btn btn-dark" type="submit">Registrate</button>
                 </div>
               </form>
@@ -81,5 +88,6 @@
         </div>
       </div>
     </main>
+    <script src="/javascripts/validationRegister.js"></script>
   </body>
 </html>
