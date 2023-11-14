@@ -21,7 +21,7 @@
                         <div class="col-12 col-md-8">
                             <h2>U$S<%= product.price %></h2>
                             <p><%= product.description %></p>
-                            <button type="button" name="" id="" class="btn btn-dark">Comprar</button>
+                            <button type="button" onclick="addItemToCart(1,'<%=product.id%>')" class="btn btn-dark">Comprar</button>
                         </div>
                     </div>
                   </div>
@@ -29,5 +29,7 @@
             </div>
         </div>
     </main>
+    <%- include('partials/scripts') %>
+
 </body>
 </html>
