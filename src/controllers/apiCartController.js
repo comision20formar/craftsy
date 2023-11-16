@@ -67,7 +67,7 @@ module.exports = {
             return res.status(200).json({
                 ok : true,
                 cart : req.session.cart,
-                message : "ok"
+                message : "Producto agregado exitosamente"
             })
             
         } catch (error) {
@@ -103,7 +103,7 @@ module.exports = {
             return res.status(200).json({
                 ok : true,
                 cart : req.session.cart,
-                message : "ok"
+                message : "Producto eliminado exitosamente"
             })
             
         } catch (error) {
@@ -133,7 +133,7 @@ module.exports = {
             return res.status(200).json({
                 ok : true,
                 cart : req.session.cart,
-                message : "ok"
+                message : "Producto eliminado exitosamente"
             })
             
         } catch (error) {
@@ -146,6 +146,33 @@ module.exports = {
     },
 
     emptyCart : async (req,res) => {
-        
+        try {
+
+            if(!req.session.cart) {
+                let error = new Error()
+                error.message = 'Debes loguearte';
+                error.status = 404;
+                throw error
+            }
+
+              req.session.cart = {
+                ...req.session.cart,
+                products : [],
+                total : 0,
+            }
+
+            return res.status(200).json({
+                ok : true,
+                cart : req.session.cart,
+                message : "Carrito vaciado"
+            })
+            
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok : false,
+                cart : null,
+                message : error.message || 'Upss, hubo un error'
+            })
+        }
     }
 }

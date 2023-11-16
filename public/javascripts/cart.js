@@ -1,10 +1,10 @@
 const $ = (id) => document.getElementById(id);
 
 const showProductInCart = (products, total) => {
-  if($('cart-table')){
-    $("cart-table").innerHTML= null;
-    products.forEach(
-      ({ id, image, name, price, discount, quantity }) => {
+  if (products.length) {
+    if ($("cart-table")) {
+      $("cart-table").innerHTML = null;
+      products.forEach(({ id, image, name, price, discount, quantity }) => {
         $("cart-table").innerHTML += `
         <tr>
             <th scope="row">
@@ -24,12 +24,47 @@ const showProductInCart = (products, total) => {
             </td>
         </tr>
         `;
-      }
-    );
-    $('showTotal').innerHTML = total
+      });
+      $("showTotal").innerHTML = total;
+      $('btn-empty-cart').classList.remove('disabled')
+    }
+  } else {
+    $("cart-body").innerHTML = `
+  <div class="alert alert-warning" role="alert">
+      No hay productos en el carrito.
+  </div>
+`;
+$('btn-empty-cart').classList.add('disabled')
+
   }
- 
+};
+
+const showCountCart = (products) => {
+  sessionStorage.setItem(
+    "countCart",
+    products.map((product) => product.quantity).reduce((a, b) => a + b, 0)
+  );
+  $("show-count-cart").innerHTML = sessionStorage.getItem("countCart");
+};
+
+const showMessageInfo = (message) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "info",
+    title: message
+  });
 }
+
 
 const addItemToCart = async (quantity, product) => {
   try {
@@ -37,20 +72,26 @@ const addItemToCart = async (quantity, product) => {
       method: "POST",
       body: JSON.stringify({
         quantity,
-        product : +product,
+        product: +product,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    const { ok, cart, message } = await response.json();
+    const {
+      ok,
+      cart: { products, total },
+      message,
+    } = await response.json();
 
     if (!ok) {
       throw new Error(message);
     }
 
-    showProductInCart(cart.products, cart.total)
+    showProductInCart(products, total);
+    showCountCart(products);
+    showMessageInfo(message)
 
   } catch (error) {
     Swal.fire({
@@ -63,19 +104,23 @@ const addItemToCart = async (quantity, product) => {
 
 const removeItemToCart = async (id) => {
   try {
-
     const response = await fetch(`/cart?product=${id}`, {
-      method : "DELETE"
-    })
+      method: "DELETE",
+    });
 
-    const { ok, cart, message } = await response.json();
+    const {
+      ok,
+      cart: { products, total },
+      message,
+    } = await response.json();
 
     if (!ok) {
       throw new Error(message);
     }
 
-    showProductInCart(cart.products, cart.total)
-
+    showProductInCart(products, total);
+    showCountCart(products);
+    showMessageInfo(message)
 
   } catch (error) {
     Swal.fire({
@@ -86,20 +131,55 @@ const removeItemToCart = async (id) => {
   }
 };
 
-const removeAllItem = async(id) => {
+const removeAllItem = async (id) => {
   try {
-
-    const response = await fetch(`/cart/item-all?product=${id}`,{
-      method: "DELETE"
+    const response = await fetch(`/cart/item-all?product=${id}`, {
+      method: "DELETE",
     });
-    const { ok, cart, message } = await response.json();
+    const {
+      ok,
+      cart: { products, total },
+      message,
+    } = await response.json();
 
     if (!ok) {
       throw new Error(message);
     }
 
-    showProductInCart(cart.products, cart.total)
-    
+    showProductInCart(products, total);
+    showCountCart(products);
+    showMessageInfo(message)
+
+  } catch (error) {
+    Swal.fire({
+      title: "Upss",
+      text: error.message,
+      icon: "error",
+    });
+  }
+};
+
+const emptyCart = async () => {
+  try {
+    const response = await fetch('/cart/all', {
+      method : 'delete'
+    })
+
+    const {
+      ok,
+      cart: { products, total },
+      message,
+    } = await response.json();
+
+    if (!ok) {
+      throw new Error(message);
+    }
+
+    showProductInCart(products, total);
+    showCountCart(products);
+    showMessageInfo(message);
+
+
   } catch (error) {
     Swal.fire({
       title: "Upss",
@@ -110,6 +190,10 @@ const removeAllItem = async(id) => {
 }
 
 window.onload = function () {
+  sessionStorage.setItem("countCart", sessionStorage.getItem("countCart") || 0);
+  $("show-count-cart").innerHTML = sessionStorage.getItem("countCart");
+  $("show-count-cart").hidden = false;
+
   $("btn-cart") &&
     $("btn-cart").addEventListener("click", async function (e) {
       try {
@@ -140,9 +224,7 @@ window.onload = function () {
             </table>
             `;
 
-            showProductInCart(cart.products, cart.total)
-
-          
+            showProductInCart(cart.products, cart.total);
           } else {
             $("cart-body").innerHTML = `
                     <div class="alert alert-warning" role="alert">

@@ -17,8 +17,11 @@
                 <% if (userLogin.rol === 1) { %>
                     <li><a href="/admin">admin</a></li>
                 <% } %>
-                <button id="btn-cart" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button id="btn-cart" type="button" class="btn btn-transparent text-white position-relative me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark" id="show-count-cart" hidden>
+                    
+                    </span>
                   </button>
                 <li><a href="/users/profile">Hola <%= userLogin.name %>!</a></li>
                 <li><a href="/users/logout">Salir</a></li>
@@ -40,7 +43,7 @@
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Vaciar carrito</button>
+          <button type="button" class="btn btn-danger disabled" onclick="emptyCart()" id="btn-empty-cart">Vaciar carrito</button>
           <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
           <button type="button" class="btn btn-primary">Finalizar compra</button>
         </div>
