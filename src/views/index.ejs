@@ -11,9 +11,8 @@
     <div class="home__banner">
         <img src="/images/banner/banner_1.jpg" alt="">
     </div>
-    <div class="row">
 
-        <main class="col-12 col-md-8">
+        <main class="p-3">
 
             <% sections.forEach(section => { %>
                 <h3 class="mt-5"><%= section.name.toUpperCase() %></h3>
@@ -21,7 +20,8 @@
                 <section class="row">
                 <% section.products.forEach(product => { %>
                       <%- include('./partials/cardProduct', {
-                        product
+                        product,
+                        toThousand
                       }) %>
                    
                 <% }) %>
@@ -31,48 +31,9 @@
           
         </main>
 
-        <aside class="col-12 col-md-4 mt-4">
-            <section class="home__aside__section">
-               <!--  <h3>Tutoriales</h3> -->
-                <% tutorials.forEach(tutorial => { %>
-                    <article class="home__aside__section__article">
-                        <img src="/images/<%= tutorial.image %>" alt="Imagen tutorial 1">
-                        <div class="home__aside__section__article--name">
-                            <h5><%= tutorial.name %></h5>
-                            <span><%= tutorial.message %></span>
-                        </div>
-                    </article>
-
-                <% }) %>
-               
-              
-            </section>
-            <section class="home__aside__section">
-                <h3>Publicidad</h3>
-                <div class="home__aside__section--ads">
-                    <img src="/images/ad-01.jpg" alt="imagen publicidad 1">
-                    <img src="/images/ad-02.jpg" alt="imagen publicidad 2">
-                </div>
-            </section>
-        </aside>
-    </div>
-    <div class="home__carousel">
-        <div class="glider-contain" >
-            <div class="glider">
-               
-
-                   
-              
-            </div>
-
-            <button aria-label="Previous" class="glider-prev">«</button>
-            <button aria-label="Next" class="glider-next">»</button>
-            <div role="tablist" class="dots"></div>
-        </div>
-    </div>
+  
    
-    <script src="/javascripts/glider.js"></script>
-    <script src="/javascripts/gliderCarousel.js"></script>
+
     <script src="/javascripts/index.js"></script>
 
     <%- include('partials/scripts') %>

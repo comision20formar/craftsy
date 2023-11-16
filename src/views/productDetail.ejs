@@ -4,6 +4,29 @@
         title : 'PRODUCTO: ' + product.name
     }) %>
 
+    <style>
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    </style>
+
 <body class="login">
     <%- include('partials/header') %>
 
@@ -12,24 +35,74 @@
             <div class="col-12 col-md-10  mx-auto">
                 <div class="card shadow">
                   <div class="card-body">
-                    <h3>Producto: <%= product.name %></h3>
+                    <h2><%= product.name %></h2>
                     <hr>
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <img src="/images/<%= product.images[0].file %>" class="img-fluid" alt="">
+                            <img src="/images/<%= product.image%>" class="img-fluid" alt="">
                         </div>
                         <div class="col-12 col-md-8">
-                            <h2>U$S<%= product.price %></h2>
                             <p><%= product.description %></p>
-                            <button type="button" onclick="addItemToCart(1,'<%=product.id%>')" class="btn btn-dark">Comprar</button>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <h2>$<%= toThousand(product.price) %></h2>
+                                <button type="button" onclick="addItemToCart(1,'<%=product.id%>')" class="btn btn-dark">Comprar</button>
+                            </div>
+
                         </div>
                     </div>
                   </div>
+                </div>
+                <div class="card shadow mt-4">
+                    <div class="card-body">
+                        <h4>Productos relacionados</h4>
+                        <hr>
+                    </div>
+                    
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper mb-3">
+                            <% products.forEach(product => { %>
+                                <div class="swiper-slide ">
+                                    <a href="/products/detail/<%= product.id %>">
+                                    <div class="d-flex flex-column">
+                                        <img src="/images/<%= product.image%>" style="height: 200px; object-fit: contain;" alt="">
+                                        <hr>
+                                        <p class="text-dark"><%= product.name %></p>
+                                    </div>
+                                </a>
+                                  </div>
+                            <% }) %>
+                        
+                         
+                        </div>
+                        <div class="swiper-pagination"></div>
+                      </div>
                 </div>
             </div>
         </div>
     </main>
     <%- include('partials/scripts') %>
-
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          freeMode: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+       
+      },
+        });
+      </script>
 </body>
 </html>

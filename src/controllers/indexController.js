@@ -1,4 +1,4 @@
-const {readJSON} = require('../data');
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require('../database/models');
 
 module.exports = {
@@ -22,7 +22,8 @@ module.exports = {
                 //return res.send(sections)
                 return res.render('index',{
                     tutorials,
-                    sections
+                    sections,
+                    toThousand
                 })
             })
             .catch(error => console.log(error))
@@ -35,7 +36,11 @@ module.exports = {
             include : ['brand','section','images']
         });
         const brands = db.Brand.findAll({
-            order : ['name']
+            order : ['name'],
+            include : {
+                association : 'products',
+                attributes : ['id']
+            }
         })
 
         Promise.all([tutorials,products, brands])

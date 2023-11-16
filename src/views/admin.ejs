@@ -12,9 +12,11 @@
                             <div class="card-header">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                      <li class="breadcrumb-item"><a class="text-primary text-decoration-underline" href="/admin">Productos</a></li>
+                                        <li class="breadcrumb-item"><a class="text-primary text-decoration-underline"
+                                                href="/admin">Productos</a></li>
                                     </ol>
-                                  </nav>                            </div>
+                                </nav>
+                            </div>
                             <div class="card-body">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -43,21 +45,26 @@
                                                 class="d-flex flex-column flex-md-row  gap-2" method="GET">
                                                 <select class="form-select" name="brand">
                                                     <% if (locals.brand) { %>
-                                                        <% brands.forEach(item => { %>                                                        
-                                                            <option <%= +brand === item.id && 'selected' %>  value="<%= item.id %>"><%= item.name %></option>
-                                                        <% }) %>
-                                                    <% }else{ %>
-                                                    <option selected hidden>Filtrar por marca</option>
-                                                    <% brands.forEach(brand => { %>                                                        
-                                                        <option value="<%= brand.id %>"><%= brand.name %></option>
-                                                    <% }) %>
-                                                    <% } %>
+                                                        <% brands.forEach(item=> { %>
+                                                            <option <%=+brand===item.id && 'selected' %> value="<%=
+                                                                    item.id %>"><%= item.name %>
+                                                            </option>
+                                                            <% }) %>
+                                                                <% }else{ %>
+                                                                    <option selected hidden>Filtrar por marca</option>
+                                                                    <% brands.forEach(brand=> { %>
+                                                                        <option value="<%= brand.id %>">
+                                                                            <%= brand.name %>
+                                                                        </option>
+                                                                        <% }) %>
+                                                                            <% } %>
                                                 </select>
                                                 <button type="submit" class="btn btn-dark">
                                                     Filtrar
                                                 </button>
                                             </form>
-                                            <form action="/products/search" class="d-flex flex-column flex-md-row  gap-2" method="GET">
+                                            <form action="/products/search"
+                                                class="d-flex flex-column flex-md-row  gap-2" method="GET">
                                                 <input type="text" class="form-control" placeholder="Buscar..."
                                                     name="keyword">
                                                 <button type="submit" class="btn btn-dark">
@@ -80,8 +87,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <% products.forEach(({id, name, brand, section, price, discount, images, image,
-                                                        description},index)=> { %>
+                                                    <% products.forEach(({id, name, brand, section, price, discount,
+                                                        images, image, description},index)=> { %>
                                                         <tr>
                                                             <th scope="row">
                                                                 <%= index + 1 %>
@@ -115,7 +122,8 @@
                                                                     </button>
 
                                                                     <%- include('partials/modalProductDetail',{ id,
-                                                                        name, price, discount, description, images, image })%>
+                                                                        name, price, discount, description, images,
+                                                                        image })%>
 
                                                                         <a href="/products/edit/<%= id %>"
                                                                             class="btn btn-sm btn-success">
@@ -170,16 +178,59 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        <% }) %>
-
-
+                                                    <% }) %>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                         aria-labelledby="nav-profile-tab" tabindex="0">
-                                        todas las marcas
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                <th scope="col">Imagen</th>
+                                                <th scope="col">Marca</th>
+                                                <th scope="col">Productos</th>
+                                                <th scope="col">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            
+                                                <% brands.forEach(({id,image,name,products})=> { %>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <% if (!image) { %>
+                                                            
+                                                                <input onchange="changeImage('<%=id%>')" id="image" type="file" name="image" hidden>
+                                                                <label for="image" class="btn btn-sm btn-outline-dark">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </label>
+                                                            
+                                                            
+                                                        <% }else{ %>
+                                                        <img src="/images/<%=image%>" alt="<%=name%>">
+                                                        <% } %>
+                                                    </th>
+                                                    <td>
+                                                        <div class="d-flex align-items-start gap-2" >
+                                                            <a href="#" onclick="showEditBrand(event,'<%=id%>','<%=name%>')" class="btn btn-sm btn-outline-success">
+                                                                <i class="fas fa-edit"></i>
+                                                            </a>
+                                                            <p id="show-brand-name-<%=id%>"><%=name%></p>
+                                                            <div id="box-edit-brand-<%=id%>" class="input-group mb-3" style="display: none;">
+                                                                <input id="input-edit-brand-<%=id%>" type="text" class="form-control">
+                                                                <button onclick="saveEditBrand('<%=id%>')" class="input-group-text text-success"><i class="fas fa-check"></i></button>
+                                                                <button onclick="closeEditBrand('<%=id%>')" class="input-group-text text-danger"><i class="fas fa-xmark"></i></button>
+                                                              </div>
+                                                              
+                                                        </div>
+                                                    </td>
+                                                    <td><%= products.length %></td>
+                                                    <td>@mdo</td>
+                                                    </tr>
+                                               <% }) %>                        
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                         aria-labelledby="nav-contact-tab" tabindex="0">
@@ -198,9 +249,21 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
                 crossorigin="anonymous"></script>
-        <script>
-            console.log('<%=locals.success%>');
-        </script>
+            <script>
+                const showEditBrand = (e,id,text) => {
+                    e.preventDefault();
+                    document.getElementById(`show-brand-name-${id}`).style.display = 'none';
+                    document.getElementById(`box-edit-brand-${id}`).style.display = 'flex';
+                    document.getElementById(`input-edit-brand-${id}`).value = text;
+                    document.getElementById(`input-edit-brand-${id}`).focus()
+
+                }
+
+                const closeEditBrand = (id) => {
+                    document.getElementById(`box-edit-brand-${id}`).style.display = 'none';
+                    document.getElementById(`show-brand-name-${id}`).style.display = 'block';
+                }
+            </script>
 
     </body>
 

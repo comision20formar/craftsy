@@ -1,12 +1,23 @@
-const { readJSON, writeJSON } = require("../../data")
+const {existsSync, unlinkSync} = require('fs')
+const db = require('../../database/models')
+
 
 module.exports = (req,res) => {
-    const products = readJSON('products.json');
+
     const id = req.params.id;
 
-    const productsModify = products.filter(product => product.id !== id);
+    db.Product.findByPk(id)
+        .then(product => {
+            
+            existsSync(`./public/images/${product.image}`) &&
+            unlinkSync(`./public/images/${product.image}`);
+            
+            product.destroy();
 
-    writeJSON(productsModify, 'products.json')
+            return res.redirect('/admin')
 
-    return res.redirect('/admin')
+        })
+        .catch(error => console.log(error))
+
+
 }
