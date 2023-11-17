@@ -13,7 +13,7 @@ const showProductInCart = (products, total) => {
             <td>${name}</td>
             <td>
               <div class="d-flex gap-2">
-                <button onclick="removeItemToCart(${id})" class="btn btn-sm btn-danger"><i class="fa-solid fa-minus"></i></button>
+                <button onclick="removeItemToCart(${id})"  class="btn btn-sm btn-danger ${quantity === 1 && 'disabled'}"><i class="fa-solid fa-minus"></i></button>
                 <input type="text" value="${quantity}" style="width:30px;text-align:center"/>
                 <button onclick="addItemToCart(1, ${id})" class="btn btn-sm btn-success"><i class="fa-solid fa-plus"></i></button>
               </div>
@@ -190,6 +190,7 @@ const emptyCart = async () => {
 }
 
 window.onload = function () {
+  
   sessionStorage.setItem("countCart", sessionStorage.getItem("countCart") || 0);
   $("show-count-cart").innerHTML = sessionStorage.getItem("countCart");
   $("show-count-cart").hidden = false;

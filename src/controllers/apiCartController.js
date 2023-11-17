@@ -50,6 +50,20 @@ module.exports = {
                     return product
                 });
 
+                 /* base de datos */
+                await db.Item.update(
+                    {
+                        quantity :  req.session.cart.products.find(product => product.id === +id).quantity
+                    },
+                    {
+                        where : {
+                            orderId : req.session.cart.orderId,
+                            productId : id
+                        }
+                    }
+                )
+
+
             }else{
 
                 req.session.cart.products.push({
@@ -60,9 +74,18 @@ module.exports = {
                     discount,
                     quantity,
                 });
+                
+                /* base de datos */
+
+                await db.Item.create({
+                    quantity : 1,
+                    orderId : req.session.cart.orderId,
+                    productId : id
+                })
             }         
 
             req.session.cart.total = req.session.cart.products.map(product => product.price * product.quantity).reduce((a,b) => a + b, 0)
+
 
             return res.status(200).json({
                 ok : true,
@@ -71,6 +94,7 @@ module.exports = {
             })
             
         } catch (error) {
+            console.log(error);
             return res.status(error.status || 500).json({
                 ok : false,
                 cart : null,
@@ -98,6 +122,19 @@ module.exports = {
                 return product
             });
 
+              /* base de datos */
+              await db.Item.update(
+                {
+                    quantity :  req.session.cart.products.find(product => product.id === +id).quantity
+                },
+                {
+                    where : {
+                        orderId : req.session.cart.orderId,
+                        productId : id
+                    }
+                }
+            )
+
             req.session.cart.total = req.session.cart.products.map(product => product.price * product.quantity).reduce((a,b) => a + b, 0)
 
             return res.status(200).json({
@@ -107,6 +144,7 @@ module.exports = {
             })
             
         } catch (error) {
+            console.log(error);
             return res.status(error.status || 500).json({
                 ok : false,
                 cart : null,
@@ -128,6 +166,16 @@ module.exports = {
 
             req.session.cart.products = req.session.cart.products.filter(product => product.id !== +id );
 
+            /* base de datos */
+              await db.Item.destroy(
+                {
+                    where : {
+                        orderId : req.session.cart.orderId,
+                        productId : id
+                    }
+                }
+            )
+
             req.session.cart.total = req.session.cart.products.map(product => product.price * product.quantity).reduce((a,b) => a + b, 0)
 
             return res.status(200).json({
@@ -137,6 +185,7 @@ module.exports = {
             })
             
         } catch (error) {
+            console.log(error);
             return res.status(error.status || 500).json({
                 ok : false,
                 cart : null,
@@ -161,6 +210,15 @@ module.exports = {
                 total : 0,
             }
 
+              /* base de datos */
+              await db.Item.destroy(
+                {
+                    where : {
+                        orderId : req.session.cart.orderId,
+                    }
+                }
+            )
+
             return res.status(200).json({
                 ok : true,
                 cart : req.session.cart,
@@ -168,6 +226,7 @@ module.exports = {
             })
             
         } catch (error) {
+            console.log(error);
             return res.status(error.status || 500).json({
                 ok : false,
                 cart : null,
