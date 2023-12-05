@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cors = require('cors');
 
 const localsCheck = require('./middlewares/localsCheck');
 
@@ -17,6 +18,8 @@ const cartRouter = require('./routes/cart');
 const cookieCheck = require('./middlewares/cookieCheck');
 
 const app = express();
+
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -28,6 +28,29 @@ const checkEmail = async (req,res) => {
     }
 }
 
+
+const getAllProduct = async (req,res) => {
+    try {
+
+        const products = await db.Product.findAll({
+            include : ['brand','section']
+        })
+
+        return res.status(200).json({
+            ok : true,
+            data :products
+        })
+        
+    } catch (error) {
+        return res.status(error.status || 500).json({
+            ok : false,
+            msg : error.message || 'Upss, hubo un error'
+        })
+    }
+}
+
+
 module.exports = {
-    checkEmail
+    checkEmail,
+    getAllProduct
 }
