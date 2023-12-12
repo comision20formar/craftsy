@@ -1,4 +1,4 @@
-import { getProducts } from "../services/products"
+import { getProducts } from "../../services/products"
 
 export const loader = async () => {
     try {

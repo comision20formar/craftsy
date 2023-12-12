@@ -1,16 +1,26 @@
 import { Card, Col, Row, Table } from "react-bootstrap";
-import { FormProduct } from "../components/FormProduct";
-import { FormSearchProducts } from "../components/FormSearchProducts";
-import { TableItemProduct } from "../components/TableItemProduct";
-import { useLoaderData } from "react-router-dom";
+import { FormProduct } from "../../components/FormProduct";
+import { FormSearchProducts } from "../../components/FormSearchProducts";
+import { TableItemProduct } from "../../components/TableItemProduct";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../services/products";
 
 export const ProductsListPage = () => {
   const handleEditProduct = () => {};
   const handleDeleteProduct = () => {};
 
-  const products = useLoaderData();
+  const [products, setProducts] = useState([]);
+  const [loading, setloading] = useState(true);
 
-  console.log(products);
+  useEffect(() => {
+    async function fetchData() {
+            const response = await getProducts();
+      setProducts(response.data)
+      setloading(false)
+    }
+    fetchData();
+  }, []);
+
 
   return (
     <>
@@ -19,7 +29,7 @@ export const ProductsListPage = () => {
       </div>
       <Row>
         <Col sm={12} md={4}>
-          <FormProduct />
+          <FormProduct setProducts={setProducts} products={products} />
         </Col>
         <Col sm={12} md={8}>
             <Card>
@@ -40,7 +50,12 @@ export const ProductsListPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {products.map((product, index) => (
+                    {
+                    
+                    loading ?
+                    <p>cargando...</p>
+                    :
+                    products.map((product, index) => (
                       <TableItemProduct
                         key={index + product.name}
                         product={product}
