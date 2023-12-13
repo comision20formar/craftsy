@@ -110,20 +110,30 @@ export const FormProduct = ({setProducts, formValues, setFormValues, products}) 
           <Form.Group className="mb-3 col-12">
             <Form.Label>Marca</Form.Label>
             <Form.Select className={`form-control`} name="brandId" onChange={handleInputChange} >
-              {data.loading ? (
-                <option hidden defaultValue>
-                  Cargando...
-                </option>
-              ) : (
-                <>
+              {
+              
+                data.loading ? (
                   <option hidden defaultValue>
-                    Seleccione...
+                    Cargando...
                   </option>
-                  {
-                  data.brands.map(({ id, name }) => <option key={id} selected={id === formValues.brandId} value={id}>{name}</option>)
-                  }
-                </>
-              )}
+                ) : (
+                  <>
+                    <option hidden defaultValue>
+                      Seleccione...
+                    </option>
+                    {
+                    data.brands.map(({ id, name }) => (
+                      formValues.brandId == id
+                      ?
+                      <option key={id} selected value={id}>{name}</option>
+                      :
+                      <option key={id} value={id}>{name}</option>
+                    ))
+                    }
+                  </>
+                )
+              }
+             
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3 col-12">
@@ -134,6 +144,12 @@ export const FormProduct = ({setProducts, formValues, setFormValues, products}) 
               </option>
               {data.sections &&
                 data.sections.map(({ id, name }) => (
+                  formValues.sectionId == id
+                  ?
+                  <option key={id} selected value={id}>
+                    {name}
+                  </option>
+                  :
                   <option key={id} value={id}>
                     {name}
                   </option>
