@@ -55,3 +55,37 @@ export const createProduct = async(data) => {
         console.error
     }
 }
+
+export const updateProduct = async(data, id) => {
+    try {
+
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/apis/products/${id}`,{
+            method: 'PUT',
+            body : JSON.stringify(data),
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        })
+        const result = await response.json();
+
+        return result
+        
+    } catch (error) {
+        console.error
+    }
+}
+
+export const deleteProduct = async(id) => {
+    try {
+
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/apis/products/${id}`,{
+            method: 'DELETE'
+        })
+        const result = await response.json();
+
+        return result
+        
+    } catch (error) {
+        console.error
+    }
+}

@@ -1,26 +1,52 @@
-import { Card, Col, Row, Table } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { FormProduct } from "../../components/FormProduct";
-import { FormSearchProducts } from "../../components/FormSearchProducts";
-import { TableItemProduct } from "../../components/TableItemProduct";
+
 import { useEffect, useState } from "react";
-import { getProducts } from "../../services/products";
+import { deleteProduct, getProducts } from "../../services/products";
+import { TableProducts } from "../../components/TableProducts";
 
 export const ProductsListPage = () => {
-  const handleEditProduct = () => {};
-  const handleDeleteProduct = () => {};
-
   const [products, setProducts] = useState([]);
   const [loading, setloading] = useState(true);
 
+  const [formValues, setFormValues] = useState({
+    id: null,
+    name: "",
+    price: "",
+    discount: "",
+    brandId: "",
+    sectionId: "",
+    description: "",
+  });
+
+  const handleEditProduct = (idProduct) => {
+    const { id, name, price, discount, brandId, sectionId, description } =
+      products.find((product) => product.id === idProduct);
+    setFormValues({
+      id,
+      name,
+      price,
+      discount,
+      brandId,
+      sectionId,
+      description,
+    });
+  };
+  const handleDeleteProduct = async (id) => {
+    await deleteProduct(id);
+    const productsFiltered = products.filter((product) => product.id !== id);
+
+    setProducts(productsFiltered);
+  };
+
   useEffect(() => {
     async function fetchData() {
-            const response = await getProducts();
-      setProducts(response.data)
-      setloading(false)
+      const response = await getProducts();
+      setProducts(response.data);
+      setloading(false);
     }
     fetchData();
   }, []);
-
 
   return (
     <>
@@ -29,44 +55,21 @@ export const ProductsListPage = () => {
       </div>
       <Row>
         <Col sm={12} md={4}>
-          <FormProduct setProducts={setProducts} products={products} />
+          <FormProduct
+            setProducts={setProducts}
+            products={products}
+            formValues={formValues}
+            setFormValues={setFormValues}
+          />
         </Col>
         <Col sm={12} md={8}>
-            <Card>
-              <Card.Body>
-                <div className="d-flex justify-content-between">
-                  <FormSearchProducts />
-                </div>
-
-                <Table striped>
-                  <thead>
-                    <tr>
-                      <th>Producto</th>
-                      <th>Precio</th>
-                      <th>Descuento</th>
-                      <th>Marca</th>
-                      <th>Sección</th>
-                      <th>Acciones</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                    
-                    loading ?
-                    <p>cargando...</p>
-                    :
-                    products.map((product, index) => (
-                      <TableItemProduct
-                        key={index + product.name}
-                        product={product}
-                        handleEditProduct={handleEditProduct}
-                        handleDeleteProduct={handleDeleteProduct}
-                      />
-                    ))}
-                  </tbody>
-                </Table>
-              </Card.Body>
-            </Card>
+          <TableProducts
+            itemsPerPage={7}
+            loading={loading}
+            products={products}
+            handleDeleteProduct={handleDeleteProduct}
+            handleEditProduct={handleEditProduct}
+          />
         </Col>
       </Row>
     </>

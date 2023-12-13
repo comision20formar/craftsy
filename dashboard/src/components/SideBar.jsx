@@ -1,26 +1,27 @@
 import { Link, useLocation } from "react-router-dom"
+import PropTypes from 'prop-types';
 
-export const SideBar = () => {
+export const SideBar = ({show, setShow}) => {
 
 const location = useLocation()
 
   return (
     <ul
-    className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
+    className="navbar-nav bg-gradient-secondary sidebar sidebar-dark p-3"
     id="accordionSidebar"
+    style={{position:"absolute","zIndex":1000, height:"100%", width:"250px", "left":show,}}
   >
-    <a
-      className="sidebar-brand d-flex align-items-center justify-content-center"
-      href="/"
-    >
-      <div className="sidebar-brand-icon">
+    <div className="d-flex justify-content-end">
+    <button onClick={() => setShow(-250)} className="btn btn-outline-light border-0" style={{"width":"40px"}}><i className="fas fa-times"></i></button>
+    </div>
+    
+      <div className="p-4">
         <img
           className="w-100"
           src="/images/logo.png"
           alt="Logo Craftsy"
         />
       </div>
-    </a>
 
     <hr className="sidebar-divider my-0" />
 
@@ -35,21 +36,26 @@ const location = useLocation()
 
     <div className="sidebar-heading">Actions</div>
 
-    <li className={`nav-item ${location.pathname === '/' && 'active'}`}>
-      <Link className="nav-link collapsed" to="/">
-        <i className="fas fa-fw fa-home"></i>
-        <span> Inicio</span>
+    <li className={`nav-item ${location.pathname === '/' && 'active'}`} >
+      <Link className="nav-link collapsed d-flex align-items-center" to="/"  onClick={() => setShow(-250)}>
+      <i className="fas fa-fw fa-home fa-lg"></i>
+        <span style={{fontSize:"1.2rem"}} className="ml-2"> Inicio</span>
       </Link>
     </li>
 
     <li className={`nav-item ${location.pathname === '/products' && 'active'}`}>
-      <Link className="nav-link " to="/products">
-        <i className="fas fa-fw fa-film"></i>
-        <span>Productos</span>
+      <Link className="nav-link  d-flex align-items-center" to="/products"  onClick={() => setShow(-250)}>
+        <i className="fas fa-fw fa-film fa-lg"></i>
+        <span style={{fontSize:"1.2rem"}} className="ml-2">Productos</span>
       </Link>
     </li>
 
     <hr className="sidebar-divider d-none d-md-block" />
   </ul>
   )
+}
+
+SideBar.propTypes = {
+  setShow : PropTypes.func,
+  show : PropTypes.number
 }
