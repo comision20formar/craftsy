@@ -17,10 +17,11 @@ export const ProductsListPage = () => {
     brandId: "",
     sectionId: "",
     description: "",
+    image : ""
   });
 
   const handleEditProduct = (idProduct) => {
-    const { id, name, price, discount, brandId, sectionId, description } =
+    const { id, name, price, discount, brandId, sectionId, description, image } =
       products.find((product) => product.id === idProduct);
     setFormValues({
       id,
@@ -30,6 +31,7 @@ export const ProductsListPage = () => {
       brandId,
       sectionId,
       description,
+      image
     });
   };
   const handleDeleteProduct = async (id) => {

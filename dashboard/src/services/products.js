@@ -38,14 +38,20 @@ export const getBrands = async() => {
 }
 
 export const createProduct = async(data) => {
+
+    const formData = new FormData()
+    for (const key in data) {
+       formData.append(key, data[key])
+    }
+    
     try {
 
         const response = await fetch(`${import.meta.env.VITE_API_URL}/apis/products`,{
             method: 'POST',
-            body : JSON.stringify(data),
-            headers : {
+            body : formData,
+         /*    headers : {
                 'Content-Type' : 'application/json'
-            }
+            } */
         })
         const result = await response.json();
 
@@ -59,12 +65,14 @@ export const createProduct = async(data) => {
 export const updateProduct = async(data, id) => {
     try {
 
+        const formData = new FormData()
+        for (const key in data) {
+           formData.append(key, data[key])
+        }
+
         const response = await fetch(`${import.meta.env.VITE_API_URL}/apis/products/${id}`,{
             method: 'PUT',
-            body : JSON.stringify(data),
-            headers : {
-                'Content-Type' : 'application/json'
-            }
+            body : formData,
         })
         const result = await response.json();
 

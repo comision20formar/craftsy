@@ -37,11 +37,23 @@ const createProduct = async (req, res) => {
       description: description.trim(),
       brandId,
       sectionId,
+      image : req.files[0].filename,
     });
+
+   /*  if(req.files.length){
+      await db.Image.create({
+        file : req.files[0].filename,
+        main : true,
+        productId : id
+      })
+    } */
 
     const product = await db.Product.findByPk(id, {
       include: ["brand", "section"],
     });
+
+    product.image = `${req.protocol}://${req.get('host')}/images/${product.image}`
+
 
     return res.status(200).json({
       ok: true,
@@ -61,6 +73,10 @@ const updateProduct = async (req, res) => {
   try {
     const { name, discount, price, description, brandId, sectionId } = req.body;
 
+    const product = await db.Product.findByPk(req.params.id, {
+      include: ["brand", "section"],
+    });
+
     await db.Product.update(
       {
         name: name.trim(),
@@ -69,6 +85,7 @@ const updateProduct = async (req, res) => {
         description: description.trim(),
         brandId,
         sectionId,
+        image : req.files.length ? req.files[0].filename : product.image
       },
       {
         where: {
@@ -77,9 +94,29 @@ const updateProduct = async (req, res) => {
       }
     );
 
-    const product = await db.Product.findByPk(req.params.id, {
-      include: ["brand", "section"],
-    });
+    if(req.files.length){
+    /*  const [imageRow, isCreated] = await db.Image.findOrCreate(
+        {
+          where : {
+            productId : req.params.id,
+            main : true
+          },
+          defaults : {
+            productId : req.params.id,
+            main : true,
+            file : req.files[0].filename,
+
+          }
+        },
+      )
+      console.log(imageRow, isCreated); */
+
+    }
+
+
+    product.reload();
+    product.image = `${req.protocol}://${req.get('host')}/images/${product.image}`;
+
 
     return res.status(200).json({
       ok: true,
@@ -123,9 +160,14 @@ const getAllProduct = async (req, res) => {
       include: ["brand", "section"],
     });
 
+    const productsWithURLImages = products.map(product => {
+      product.image = product.image ?  `${req.protocol}://${req.get('host')}/images/${product.image}` : null
+      return product
+    })
+
     return res.status(200).json({
       ok: true,
-      data: products,
+      data: productsWithURLImages,
     });
   } catch (error) {
     return res.status(error.status || 500).json({
